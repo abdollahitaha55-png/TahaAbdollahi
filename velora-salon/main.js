@@ -127,6 +127,9 @@
 
   /* ---------- Booking form (builds a WhatsApp message; no backend) ---------- */
   const WHATSAPP_NUMBER = "989193220038"; // salon WhatsApp number (09193220038)
+  // Optional: set to an HTTPS endpoint (Apps Script, a form service, an API) to store requests.
+  // Leave empty to use WhatsApp only.
+  const BOOKING_ENDPOINT = "";
   const form = $("#booking-form");
   const status = $(".form-status");
   const waLink = $(".wa-link");
@@ -157,7 +160,27 @@
 
     waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     waLink.hidden = false;
-    status.textContent = "درخواست شما آماده است. برای تأیید نهایی نوبت، آن را در واتساپ ارسال کنید.";
+
+    if (!BOOKING_ENDPOINT) {
+      status.textContent = "درخواست شما آماده است. برای تأیید نهایی نوبت، آن را در واتساپ ارسال کنید.";
+      return;
+    }
+
+    status.textContent = "در حال ثبت درخواست…";
+    fetch(BOOKING_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...data, phone, message }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+        status.textContent = "درخواست شما ثبت شد. برای تأیید سریع‌تر، در واتساپ هم پیام دهید.";
+        form.reset();
+      })
+      .catch(() => {
+        status.textContent = "ثبت درخواست انجام نشد. لطفاً از طریق واتساپ پیام دهید.";
+        status.classList.add("is-error");
+      });
   });
 
   /* ---------- Custom cursor (fine pointers only) ---------- */

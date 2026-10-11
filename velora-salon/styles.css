@@ -195,6 +195,11 @@ button {
   line-height: 1;
 }
 
+.logo img {
+  height: 44px;
+  width: auto;
+}
+
 .logo small {
   font-size: 0.95rem;
   font-weight: 600;
@@ -973,8 +978,8 @@ button {
     padding-block: 16px;
   }
 
-  .logo .latin {
-    font-size: 1.6rem;
+  .logo img {
+    height: 36px;
   }
 
   .price-list a {
