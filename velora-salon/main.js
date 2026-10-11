@@ -3,6 +3,7 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = matchMedia("(pointer: fine) and (hover: hover)").matches;
   const toFa = (n) => String(n).padStart(2, "0").replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
   const toLatinDigits = (s) => s.replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
 
@@ -26,9 +27,20 @@
   );
   $$("[data-reveal]").forEach((el) => io.observe(el));
 
-  /* ---------- Hero pointer parallax ---------- */
+  /* ---------- Pointer-driven light and hero parallax ---------- */
+  const glow = $(".glow");
   const hero = $(".hero");
-  if (!reduceMotion) {
+
+  if (finePointer && !reduceMotion) {
+    window.addEventListener(
+      "pointermove",
+      (e) => {
+        glow.style.setProperty("--gx", `${e.clientX}px`);
+        glow.style.setProperty("--gy", `${e.clientY}px`);
+      },
+      { passive: true }
+    );
+
     hero.addEventListener("pointermove", (e) => {
       const r = hero.getBoundingClientRect();
       hero.style.setProperty("--mx", ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
@@ -36,7 +48,7 @@
     });
   }
 
-  /* ---------- Lines slider: each slide recolors the section ---------- */
+  /* ---------- Lines slider: each slide recolors the section and draws its line-art ---------- */
   const linesSection = $("#lines");
   const viewport = $(".lines-viewport");
   const track = $(".lines-track");
@@ -65,13 +77,16 @@
     progress.style.transform = `scaleX(${(current + 1) / slides.length})`;
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === slides.length - 1;
-    slides.forEach((s, i) => s.setAttribute("aria-hidden", String(i !== current)));
+
+    slides.forEach((s, i) => {
+      const active = i === current;
+      s.classList.toggle("is-active", active);
+      s.setAttribute("aria-hidden", String(!active));
+    });
   }
 
-  const next = () => goTo(current + 1);
-  const prev = () => goTo(current - 1);
-  nextBtn.addEventListener("click", next);
-  prevBtn.addEventListener("click", prev);
+  nextBtn.addEventListener("click", () => goTo(current + 1));
+  prevBtn.addEventListener("click", () => goTo(current - 1));
 
   // Pointer drag (mouse, touch, pen)
   let dragging = false;
@@ -111,25 +126,26 @@
 
   // Keyboard: arrow keys follow the visual direction of the track
   viewport.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") next();
-    if (e.key === "ArrowRight") prev();
+    if (e.key === "ArrowLeft") goTo(current + 1);
+    if (e.key === "ArrowRight") goTo(current - 1);
   });
 
   goTo(0);
 
-  /* ---------- Price list: picking a service pre-selects it in the form ---------- */
+  /* ---------- Price ledger: picking a service pre-selects it in the form ---------- */
   const serviceSelect = $('select[name="service"]');
-  $$(".price-list a").forEach((link) => {
+  $$(".ledger a").forEach((link) => {
     link.addEventListener("click", () => {
       serviceSelect.value = link.dataset.service;
     });
   });
 
-  /* ---------- Booking form (builds a WhatsApp message; no backend) ---------- */
+  /* ---------- Booking form (builds a WhatsApp message; optional endpoint) ---------- */
   const WHATSAPP_NUMBER = "989193220038"; // salon WhatsApp number (09193220038)
   // Optional: set to an HTTPS endpoint (Apps Script, a form service, an API) to store requests.
   // Leave empty to use WhatsApp only.
   const BOOKING_ENDPOINT = "";
+
   const form = $("#booking-form");
   const status = $(".form-status");
   const waLink = $(".wa-link");
@@ -182,33 +198,4 @@
         status.classList.add("is-error");
       });
   });
-
-  /* ---------- Custom cursor (fine pointers only) ---------- */
-  const cursor = $(".cursor");
-  const finePointer = matchMedia("(pointer: fine) and (hover: hover)").matches;
-
-  if (finePointer && !reduceMotion) {
-    let tx = 0;
-    let ty = 0;
-    let cx = 0;
-    let cy = 0;
-
-    window.addEventListener("pointermove", (e) => {
-      tx = e.clientX;
-      ty = e.clientY;
-      cursor.classList.add("is-on");
-    });
-
-    const follow = () => {
-      cx += (tx - cx) * 0.25;
-      cy += (ty - cy) * 0.25;
-      cursor.style.transform = `translate(${cx}px, ${cy}px)`;
-      requestAnimationFrame(follow);
-    };
-    follow();
-
-    document.addEventListener("pointerover", (e) => {
-      cursor.classList.toggle("is-hover", Boolean(e.target.closest("a, button, .round, [data-prev], [data-next]")));
-    });
-  }
 })();
