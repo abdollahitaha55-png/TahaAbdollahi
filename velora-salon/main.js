@@ -126,7 +126,7 @@
   });
 
   /* ---------- Booking form (builds a WhatsApp message; no backend) ---------- */
-  const WHATSAPP_NUMBER = "989365370582"; // first salon number from the flyer; confirm it is on WhatsApp
+  const WHATSAPP_NUMBER = "989193220038"; // salon WhatsApp number (09193220038)
   const form = $("#booking-form");
   const status = $(".form-status");
   const waLink = $(".wa-link");
