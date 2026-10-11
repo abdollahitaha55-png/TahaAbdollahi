@@ -132,9 +132,9 @@
 
   goTo(0);
 
-  /* ---------- Price ledger: picking a service pre-selects it in the form ---------- */
+  /* ---------- Picking a service pre-selects it in the form ---------- */
   const serviceSelect = $('select[name="service"]');
-  $$(".ledger a").forEach((link) => {
+  $$("[data-service]").forEach((link) => {
     link.addEventListener("click", () => {
       serviceSelect.value = link.dataset.service;
     });
@@ -145,6 +145,12 @@
   // Optional: set to an HTTPS endpoint (Apps Script, a form service, an API) to store requests.
   // Leave empty to use WhatsApp only.
   const BOOKING_ENDPOINT = "";
+
+  // Per-service WhatsApp buttons open a chat with a prefilled message
+  $$("[data-wa-service]").forEach((link) => {
+    const text = `سلام، می‌خواهم ${link.dataset.waService} رزرو کنم. لطفاً زمان‌های خالی را اعلام کنید.`;
+    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  });
 
   const form = $("#booking-form");
   const status = $(".form-status");

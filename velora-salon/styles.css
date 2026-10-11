@@ -1145,6 +1145,120 @@ main,
   }
 }
 
+/* ---------- Service guide and FAQ ---------- */
+.guide {
+  background: var(--noir-2);
+  border-top: 1px solid var(--hair);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.guide-item {
+  border-top: 1px solid var(--hair);
+}
+
+.guide-item:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.guide-item summary,
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: color 0.4s;
+}
+
+.guide-item summary::-webkit-details-marker,
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-item summary::after,
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--display);
+  font-size: 1.6rem;
+  color: var(--champagne);
+  transition: transform 0.5s var(--ease);
+}
+
+.guide-item[open] summary::after,
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.guide-item summary:hover {
+  color: var(--champagne);
+}
+
+.guide-price {
+  margin-inline-start: auto;
+  font-size: 0.92rem;
+  color: var(--champagne);
+  white-space: nowrap;
+}
+
+.guide-body {
+  padding: 0 0 26px;
+}
+
+.guide-body p,
+.faq-item p {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.faq-title {
+  margin: 0 0 24px;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+.faq-title em {
+  font-style: normal;
+  font-weight: 600;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.faq-item {
+  border-top: 1px solid var(--hair);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.faq-item summary {
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Declared last so the phone layout overrides the base rules above */
 @media (max-width: 720px) {
   .wa-float {
