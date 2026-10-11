@@ -692,8 +692,7 @@ button {
   transition: border-color 0.3s;
 }
 
-.booking-form input[type="tel"],
-.booking-form input[type="date"] {
+.booking-form input[type="tel"] {
   direction: ltr;
   text-align: right;
 }
@@ -978,6 +977,10 @@ button {
     padding-block: 16px;
   }
 
+  body {
+    padding-bottom: 88px;
+  }
+
   .logo img {
     height: 36px;
   }
@@ -1008,6 +1011,75 @@ button {
 
   .lines-buttons {
     margin-inline-start: auto;
+  }
+}
+
+/* ---------- Floating WhatsApp (desktop) and mobile action bar ---------- */
+.wa-float {
+  position: fixed;
+  inset-inline-start: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--oxblood);
+  color: var(--cream);
+  box-shadow: 0 16px 30px -12px rgba(91, 29, 43, 0.6);
+  transition: transform 0.4s var(--ease), background-color 0.4s;
+}
+
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: var(--ink);
+}
+
+.wa-float svg {
+  width: 26px;
+  height: 26px;
+}
+
+.mobile-bar {
+  display: none;
+  position: fixed;
+  inset-inline: 12px;
+  bottom: 12px;
+  z-index: 60;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.94);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px -16px rgba(27, 22, 19, 0.45);
+}
+
+.mb-btn {
+  display: grid;
+  place-items: center;
+  padding: 12px 6px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.mb-btn.mb-primary {
+  background: var(--oxblood);
+  color: var(--cream);
+}
+
+/* Declared after the base rules above so the phone layout wins */
+@media (max-width: 720px) {
+  .wa-float {
+    display: none;
+  }
+
+  .mobile-bar {
+    display: grid;
   }
 }
 

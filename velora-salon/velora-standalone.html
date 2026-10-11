@@ -735,8 +735,7 @@ button {
   transition: border-color 0.3s;
 }
 
-.booking-form input[type="tel"],
-.booking-form input[type="date"] {
+.booking-form input[type="tel"] {
   direction: ltr;
   text-align: right;
 }
@@ -1021,6 +1020,10 @@ button {
     padding-block: 16px;
   }
 
+  body {
+    padding-bottom: 88px;
+  }
+
   .logo img {
     height: 36px;
   }
@@ -1051,6 +1054,75 @@ button {
 
   .lines-buttons {
     margin-inline-start: auto;
+  }
+}
+
+/* ---------- Floating WhatsApp (desktop) and mobile action bar ---------- */
+.wa-float {
+  position: fixed;
+  inset-inline-start: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--oxblood);
+  color: var(--cream);
+  box-shadow: 0 16px 30px -12px rgba(91, 29, 43, 0.6);
+  transition: transform 0.4s var(--ease), background-color 0.4s;
+}
+
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: var(--ink);
+}
+
+.wa-float svg {
+  width: 26px;
+  height: 26px;
+}
+
+.mobile-bar {
+  display: none;
+  position: fixed;
+  inset-inline: 12px;
+  bottom: 12px;
+  z-index: 60;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.94);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px -16px rgba(27, 22, 19, 0.45);
+}
+
+.mb-btn {
+  display: grid;
+  place-items: center;
+  padding: 12px 6px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.mb-btn.mb-primary {
+  background: var(--oxblood);
+  color: var(--cream);
+}
+
+/* Declared after the base rules above so the phone layout wins */
+@media (max-width: 720px) {
+  .wa-float {
+    display: none;
+  }
+
+  .mobile-bar {
+    display: grid;
   }
 }
 
@@ -1258,7 +1330,7 @@ button {
         </label>
         <label>
           تاریخ دلخواه
-          <input name="date" type="date">
+          <input name="date" type="text" inputmode="text" placeholder="مثلاً ۲۵ مهر یا هر روز هفته">
         </label>
         <label class="full">
           ساعت یا توضیحات
@@ -1335,6 +1407,16 @@ button {
     </div>
     <p class="footer-mark latin" aria-hidden="true">Velora</p>
   </footer>
+
+  <a class="wa-float" href="https://wa.me/989193220038" target="_blank" rel="noopener" aria-label="پیام در واتساپ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.5-4.2A8 8 0 1 1 20 11.5z"/><path d="M9 10.5c.3 1.9 1.7 3.6 3.6 4.4l1.2-1.2 1.6.6"/></svg>
+  </a>
+
+  <nav class="mobile-bar" aria-label="اقدام سریع">
+    <a href="#booking" class="mb-btn mb-primary">رزرو نوبت</a>
+    <a href="https://wa.me/989193220038" target="_blank" rel="noopener" class="mb-btn">واتساپ</a>
+    <a href="tel:+989193220038" class="mb-btn">تماس</a>
+  </nav>
 
   <script>
 /* Velora — interactions */
