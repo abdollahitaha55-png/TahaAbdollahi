@@ -4,6 +4,7 @@
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const toFa = (n) => String(n).padStart(2, "0").replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+  const toLatinDigits = (s) => s.replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
 
   /* ---------- Header state ---------- */
   const header = $(".site-header");
@@ -77,7 +78,6 @@
   let startX = 0;
   let dx = 0;
 
-  // Capture only after a real drag starts, so clicks on links inside a slide still work.
   viewport.addEventListener("pointerdown", (e) => {
     if (e.pointerType === "mouse" && e.button !== 0) return;
     dragging = true;
@@ -85,6 +85,7 @@
     startX = e.clientX;
   });
 
+  // Capture only after a real drag starts, so links inside a slide still get clicks.
   viewport.addEventListener("pointermove", (e) => {
     if (!dragging) return;
     dx = e.clientX - startX;
@@ -116,116 +117,24 @@
 
   goTo(0);
 
-  /* ---------- Signature services: expanding panels ---------- */
-  const panels = $$(".panel");
-
-  const openPanel = (target) => {
-    panels.forEach((p) => {
-      const isOpen = p === target;
-      p.classList.toggle("is-open", isOpen);
-      p.setAttribute("aria-expanded", String(isOpen));
-    });
-  };
-
-  panels.forEach((panel) => {
-    panel.addEventListener("click", (e) => {
-      if (e.target.closest(".panel-cta")) return;
-      openPanel(panel);
-    });
-    panel.addEventListener("keydown", (e) => {
-      if (e.target !== panel) return;
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openPanel(panel);
-      }
-    });
-  });
-
-  // "Book this service" pre-selects the service in the form
+  /* ---------- Price list: picking a service pre-selects it in the form ---------- */
   const serviceSelect = $('select[name="service"]');
-  $$(".panel-cta").forEach((cta) => {
-    cta.addEventListener("click", () => {
-      serviceSelect.value = cta.dataset.service;
+  $$(".price-list a").forEach((link) => {
+    link.addEventListener("click", () => {
+      serviceSelect.value = link.dataset.service;
     });
   });
-
-  /* ---------- Before / after comparison ---------- */
-  const compare = $(".compare");
-  let pos = 50;
-  let comparing = false;
-
-  const setPos = (value) => {
-    pos = Math.min(Math.max(value, 0), 100);
-    compare.style.setProperty("--pos", `${pos}%`);
-    compare.setAttribute("aria-valuenow", String(Math.round(pos)));
-  };
-
-  const posFromPointer = (e) => {
-    const r = compare.getBoundingClientRect();
-    return ((e.clientX - r.left) / r.width) * 100;
-  };
-
-  compare.addEventListener("pointerdown", (e) => {
-    comparing = true;
-    compare.setPointerCapture(e.pointerId);
-    setPos(posFromPointer(e));
-  });
-  compare.addEventListener("pointermove", (e) => {
-    if (comparing) setPos(posFromPointer(e));
-  });
-  const stopCompare = () => (comparing = false);
-  compare.addEventListener("pointerup", stopCompare);
-  compare.addEventListener("pointercancel", stopCompare);
-
-  compare.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") setPos(pos + 4);
-    if (e.key === "ArrowRight") setPos(pos - 4);
-  });
-  setPos(pos);
-
-  /* ---------- Testimonials ---------- */
-  const voices = $$(".voice");
-  const dots = $$(".voice-dots button");
-  const voicesSection = $("#voices");
-  let voiceIndex = 0;
-  let voiceTimer = null;
-
-  const showVoice = (i) => {
-    voiceIndex = i;
-    voices.forEach((v, k) => v.classList.toggle("is-active", k === i));
-    dots.forEach((d, k) => d.setAttribute("aria-selected", String(k === i)));
-  };
-
-  const startVoices = () => {
-    if (reduceMotion) return;
-    clearInterval(voiceTimer);
-    voiceTimer = setInterval(() => showVoice((voiceIndex + 1) % voices.length), 6500);
-  };
-
-  dots.forEach((dot, k) => {
-    dot.addEventListener("click", () => {
-      showVoice(k);
-      startVoices();
-    });
-  });
-  voicesSection.addEventListener("pointerenter", () => clearInterval(voiceTimer));
-  voicesSection.addEventListener("pointerleave", startVoices);
-
-  showVoice(0);
-  startVoices();
 
   /* ---------- Booking form (builds a WhatsApp message; no backend) ---------- */
-  const WHATSAPP_NUMBER = "989120000000"; // placeholder: replace with the salon's number
+  const WHATSAPP_NUMBER = "989365370582"; // first salon number from the flyer; confirm it is on WhatsApp
   const form = $("#booking-form");
   const status = $(".form-status");
   const waLink = $(".wa-link");
 
-  const toLatinDigits = (s) => s.replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
-    const phone = toLatinDigits(data.phone || "").replace(/\s|-/g, "");
+    const phone = toLatinDigits(data.phone || "").replace(/[\s-]/g, "");
 
     if (!data.name?.trim() || !/^09\d{9}$/.test(phone)) {
       status.textContent = "لطفاً نام و شماره موبایل معتبر (۰۹…) را وارد کنید.";
@@ -241,7 +150,6 @@
       `شماره: ${phone}`,
       `خدمت: ${data.service}`,
       data.date ? `تاریخ: ${data.date}` : null,
-      data.time ? `ساعت: ${data.time}` : null,
       data.note ? `توضیحات: ${data.note.trim()}` : null,
     ]
       .filter(Boolean)
@@ -277,7 +185,7 @@
     follow();
 
     document.addEventListener("pointerover", (e) => {
-      cursor.classList.toggle("is-hover", Boolean(e.target.closest("a, button, [role='button'], .compare, .round")));
+      cursor.classList.toggle("is-hover", Boolean(e.target.closest("a, button, .round, [data-prev], [data-next]")));
     });
   }
 })();
