@@ -1,0 +1,2794 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ولورا | سالن زیبایی</title>
+  <meta name="description" content="سالن زیبایی ولورا؛ کاشت و ترمیم ناخن، ابرو و مژه، رنگ و کوتاهی مو. تخفیف ویژه و به مدت محدود.">
+  <meta name="theme-color" content="#0d0b0a">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-DOMAIN.example/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:site_name" content="ولورا">
+  <meta property="og:title" content="ولورا | سالن زیبایی">
+  <meta property="og:description" content="کاشت و ترمیم ناخن، ابرو و مژه، رنگ و کوتاهی مو. تخفیف ویژه و به مدت محدود.">
+  <meta property="og:url" content="https://YOUR-DOMAIN.example/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d0b0a'/%3E%3Cpath d='M18 18l14 28 14-28' fill='none' stroke='%23d9b98a' stroke-width='3.2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   Velora — سالن زیبایی ولورا · طراحی لوکس (بدون تصویر، با گرافیک خطی)
+   ========================================================================== */
+
+:root {
+  --noir: #0d0b0a;
+  --noir-2: #161210;
+  --noir-3: #1f1a16;
+  --ivory: #f3e8d6;
+  --ivory-2: #efe6d6;
+  --plum: #2a1219;
+  --champagne: #d9b98a;
+  --gold: #b89457;
+  --gold-deep: #8c6a36;
+  --muted: rgba(243, 232, 214, 0.62);
+  --hair: rgba(217, 185, 138, 0.22);
+
+  --gutter: clamp(16px, 5vw, 88px);
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --display: "Cormorant Garamond", Georgia, serif;
+  --body: "Vazirmatn", Tahoma, system-ui, sans-serif;
+  --gold-grad: linear-gradient(120deg, #8c6a36 0%, #f3e2bf 30%, #b89457 52%, #f6e7c6 72%, #9b7740 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--noir);
+  color: var(--ivory);
+  font-family: var(--body);
+  font-weight: 300;
+  line-height: 1.95;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 1px solid var(--champagne);
+  outline-offset: 5px;
+}
+
+/* Latin type uses the display serif. Persian text is never letter-spaced. */
+.latin {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 300;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.latin-num {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--champagne);
+}
+
+.section {
+  padding: clamp(96px, 13vw, 180px) var(--gutter);
+}
+
+.section-head {
+  max-width: 720px;
+  margin-bottom: clamp(44px, 6vw, 80px);
+}
+
+.section-head p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+}
+
+.section-title {
+  margin: 0 0 18px;
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  line-height: 1.35;
+  font-weight: 200;
+}
+
+.section-title em,
+.hero-title em {
+  font-style: normal;
+  font-weight: 600;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: background 0.5s var(--ease), color 0.5s var(--ease),
+    border-color 0.5s var(--ease), transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: var(--gold-grad);
+  background-size: 200% 100%;
+  color: var(--noir);
+  font-weight: 600;
+  box-shadow: 0 14px 40px -18px rgba(217, 185, 138, 0.8);
+}
+
+.btn-gold:hover {
+  background-position: 100% 0;
+  box-shadow: 0 18px 50px -16px rgba(217, 185, 138, 0.9);
+}
+
+.btn-line {
+  border: 1px solid var(--hair);
+  color: var(--ivory);
+  background: transparent;
+}
+
+.btn-line:hover {
+  border-color: var(--champagne);
+  color: var(--champagne);
+}
+
+.btn-sm {
+  padding: 11px 22px;
+  font-size: 0.88rem;
+}
+
+/* ---------- Ambient glow that follows the pointer ---------- */
+.glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 30%), rgba(184, 148, 87, 0.13), transparent 60%);
+}
+
+main,
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px var(--gutter);
+  transition: background-color 0.6s, backdrop-filter 0.6s, padding 0.6s, border-color 0.6s;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.is-scrolled {
+  padding-block: 16px;
+  background: rgba(13, 11, 10, 0.82);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-color: var(--hair);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.brand-en {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+.brand-fa {
+  padding-inline-start: 14px;
+  border-inline-start: 1px solid var(--hair);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.nav a {
+  position: relative;
+  padding-block: 4px;
+  color: var(--muted);
+  transition: color 0.4s;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -3px;
+  height: 1px;
+  background: var(--champagne);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--ease);
+}
+
+.nav a:hover {
+  color: var(--ivory);
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  padding: clamp(140px, 20vh, 190px) var(--gutter) 90px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 55% at 85% 35%, rgba(42, 18, 25, 0.9), transparent 70%),
+    radial-gradient(50% 50% at 5% 100%, rgba(140, 106, 54, 0.22), transparent 70%);
+}
+
+.hero-title {
+  margin: 0 0 32px;
+  font-size: clamp(3.4rem, 8.6vw, 8rem);
+  line-height: 1.22;
+  font-weight: 200;
+}
+
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+}
+
+.word {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: rise 1.2s var(--ease) forwards;
+  animation-delay: calc(var(--d) * 120ms + 200ms);
+}
+
+.hero-sub {
+  max-width: 500px;
+  margin: 0 0 42px;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.hero-sub strong {
+  font-weight: 600;
+  color: var(--champagne);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ---------- Hero visual: orbit of gold rings + rotating service ring ---------- */
+.hero-visual {
+  justify-self: center;
+  width: min(520px, 90vw);
+  aspect-ratio: 1;
+  transform: translate(calc(var(--mx, 0) * -18px), calc(var(--my, 0) * -18px));
+  transition: transform 0.8s var(--ease);
+}
+
+.orbit {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.orbit-rings {
+  transform-origin: 200px 200px;
+  animation: spin 60s linear infinite;
+}
+
+.orbit-rings ellipse {
+  transform-box: view-box;
+}
+
+.ring-text {
+  direction: ltr;
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 300;
+  fill: var(--champagne);
+  transform-origin: 200px 200px;
+  animation: spin 40s linear infinite reverse;
+}
+
+.core-v {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 58px;
+  fill: var(--noir);
+}
+
+/* ---------- Marquee (outlined type, two rows in opposite directions) ---------- */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  direction: ltr;
+  padding: 26px 0;
+  border-block: 1px solid var(--hair);
+  white-space: nowrap;
+}
+
+.marquee-row {
+  display: inline-flex;
+  animation: marquee 46s linear infinite;
+}
+
+.marquee-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  padding-inline: 40px;
+  font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+  font-weight: 200;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(217, 185, 138, 0.55);
+  direction: rtl;
+}
+
+.marquee-row span::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--champagne);
+  opacity: 0.6;
+}
+
+/* ---------- Lines slider (background shifts per slide) ---------- */
+.lines {
+  --accent-text: var(--accent, var(--champagne));
+  background-color: var(--bg, var(--plum));
+  color: var(--fg, var(--ivory));
+  transition: background-color 1s var(--ease), color 1s var(--ease);
+}
+
+.lines .section-head p:not(.eyebrow) {
+  color: inherit;
+  opacity: 0.7;
+}
+
+.lines .eyebrow {
+  color: var(--accent-text);
+}
+
+.lines-viewport {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.lines-viewport:active {
+  cursor: grabbing;
+}
+
+.lines-track {
+  display: flex;
+  transition: transform 1s var(--ease);
+  will-change: transform;
+}
+
+.lines-track.is-dragging {
+  transition: none;
+}
+
+.line-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  min-height: min(680px, 82svh);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 96px);
+  padding-block: 32px;
+  user-select: none;
+}
+
+.line-num {
+  display: block;
+  text-align: right;
+  font-family: var(--display);
+  font-size: clamp(5.5rem, 13vw, 11rem);
+  font-weight: 300;
+  line-height: 0.8;
+  direction: ltr;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent-text);
+  opacity: 0.55;
+}
+
+.line-name {
+  margin: 14px 0 0;
+  font-size: clamp(3rem, 7vw, 6.4rem);
+  font-weight: 200;
+  line-height: 1.3;
+}
+
+.line-latin {
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  color: var(--accent-text);
+}
+
+.line-desc {
+  max-width: 460px;
+  margin: 0 0 28px;
+  font-size: 1.08rem;
+  opacity: 0.8;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+}
+
+.tags li {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent-text) 45%, transparent);
+}
+
+.link-arrow {
+  display: inline-flex;
+  padding-bottom: 6px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--accent-text);
+  color: var(--accent-text);
+}
+
+/* Line-art: drawn in when a slide becomes active */
+.line-art {
+  justify-self: center;
+  width: min(440px, 100%);
+  aspect-ratio: 1;
+  color: var(--accent-text);
+  filter: drop-shadow(0 0 30px color-mix(in srgb, var(--accent-text) 25%, transparent));
+}
+
+.line-art svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.line-art .draw path,
+.line-art .draw circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.line-slide.is-active .draw path,
+.line-slide.is-active .draw circle {
+  animation: draw 2.4s var(--ease) forwards;
+}
+
+.line-slide.is-active .draw path:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.line-slide.is-active .draw path:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.line-slide.is-active .draw path:nth-child(n + 4) {
+  animation-delay: 0.45s;
+}
+
+.lines-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.lines-meta {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+}
+
+.lines-count {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  white-space: nowrap;
+  color: var(--accent-text);
+}
+
+.lines-progress {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.lines-progress span {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-text);
+  transform-origin: right;
+  transition: transform 1s var(--ease);
+}
+
+.lines-buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.round {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s, transform 0.5s var(--ease), opacity 0.3s;
+}
+
+.round svg {
+  width: 20px;
+  height: 20px;
+}
+
+.round:hover:not(:disabled) {
+  background: var(--accent-text);
+  border-color: var(--accent-text);
+  color: var(--bg, var(--noir));
+  transform: scale(1.06);
+}
+
+.round:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+/* ---------- Price ledger ---------- */
+.prices {
+  background: var(--ivory-2);
+  color: var(--noir);
+}
+
+.prices .eyebrow {
+  color: var(--gold-deep);
+}
+
+.prices .section-head p:not(.eyebrow) {
+  color: rgba(13, 11, 10, 0.6);
+}
+
+.prices .section-title em {
+  background: linear-gradient(120deg, #6e5226, #b89457 50%, #6e5226);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.ledger {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.ledger-title {
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+  font-size: 1.7rem;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(140, 106, 54, 0.4);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.ledger-title .latin {
+  font-size: 1.2rem;
+  color: var(--gold-deep);
+}
+
+.ledger ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ledger li + li {
+  border-top: 1px solid rgba(140, 106, 54, 0.14);
+}
+
+.ledger a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 14px;
+  padding: 20px 0;
+  transition: padding 0.5s var(--ease), color 0.4s;
+}
+
+.ledger a:hover {
+  padding-inline-start: 10px;
+  color: var(--gold-deep);
+}
+
+.ledger .svc {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.ledger .leader {
+  align-self: center;
+  border-bottom: 1px dotted rgba(140, 106, 54, 0.6);
+  min-width: 24px;
+}
+
+.ledger .price {
+  font-size: 0.92rem;
+  white-space: nowrap;
+  color: #5c4520;
+}
+
+.ledger .price b {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--noir);
+}
+
+/* ---------- Booking ---------- */
+.booking {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: clamp(40px, 7vw, 120px);
+  background: var(--noir-2);
+}
+
+.booking-intro p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.booking-intro em {
+  font-style: normal;
+  color: var(--champagne);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px 28px;
+  padding: clamp(28px, 4vw, 56px);
+  border: 1px solid var(--hair);
+  border-radius: 4px;
+  background: linear-gradient(160deg, var(--noir-3), var(--noir));
+}
+
+.booking-form label {
+  display: grid;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--champagne);
+}
+
+.booking-form label.full {
+  grid-column: 1 / -1;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--hair);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--ivory);
+  transition: border-color 0.4s;
+}
+
+.booking-form select option {
+  background: var(--noir-3);
+  color: var(--ivory);
+}
+
+.booking-form input[type="tel"] {
+  direction: ltr;
+  text-align: right;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: var(--champagne);
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+  color: rgba(243, 232, 214, 0.3);
+}
+
+.booking-form textarea {
+  resize: vertical;
+}
+
+.form-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.form-status {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.form-status.is-error {
+  color: #e39a8a;
+}
+
+.form-foot .wa-link[hidden] {
+  display: none;
+}
+
+/* ---------- Contact ---------- */
+.contact {
+  background: var(--noir);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(40px, 7vw, 120px);
+}
+
+.contact-list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 40px 0 0;
+}
+
+.contact-list li {
+  display: grid;
+  gap: 8px;
+  padding: 22px 0;
+  border-top: 1px solid var(--hair);
+}
+
+.contact-list li:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.contact-list .label {
+  font-size: 0.8rem;
+  color: var(--champagne);
+}
+
+.contact-list a {
+  transition: color 0.4s;
+}
+
+.contact-list a:hover {
+  color: var(--champagne);
+}
+
+.phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.insta-card {
+  justify-self: center;
+  width: min(420px, 100%);
+  aspect-ratio: 4 / 5;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 4px;
+  border: 1px solid var(--hair);
+  background:
+    radial-gradient(circle at 80% 10%, rgba(184, 148, 87, 0.25), transparent 55%),
+    linear-gradient(170deg, var(--plum), var(--noir));
+  transition: transform 0.7s var(--ease), border-color 0.7s;
+}
+
+.insta-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--champagne);
+}
+
+.insta-kicker {
+  font-size: 0.8rem;
+  color: var(--champagne);
+}
+
+.insta-handle {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  word-break: break-all;
+}
+
+.insta-go {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  overflow: hidden;
+  padding: 80px var(--gutter) 0;
+  background: var(--noir);
+  border-top: 1px solid var(--hair);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 56px;
+}
+
+.footer-brand .brand-en {
+  display: block;
+  font-size: 2.2rem;
+}
+
+.footer-brand p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.footer-grid h4 {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--champagne);
+}
+
+.footer-grid ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-grid ul a {
+  color: var(--muted);
+  transition: color 0.4s;
+}
+
+.footer-grid ul a:hover {
+  color: var(--champagne);
+}
+
+.footer-mark {
+  margin: 0 0 -0.16em;
+  font-family: var(--display);
+  font-size: clamp(5rem, 22vw, 19rem);
+  font-weight: 300;
+  line-height: 0.9;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(217, 185, 138, 0.14);
+  user-select: none;
+}
+
+/* ---------- Floating WhatsApp (desktop) and mobile action bar ---------- */
+.wa-float {
+  position: fixed;
+  inset-inline-start: 22px;
+  bottom: 22px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold-grad);
+  color: var(--noir);
+  box-shadow: 0 16px 36px -12px rgba(217, 185, 138, 0.6);
+  transition: transform 0.5s var(--ease);
+}
+
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.wa-float svg {
+  width: 26px;
+  height: 26px;
+}
+
+.mobile-bar {
+  display: none;
+  position: fixed;
+  inset-inline: 12px;
+  bottom: 12px;
+  z-index: 60;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid var(--hair);
+  background: rgba(22, 18, 16, 0.92);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.mb-btn {
+  display: grid;
+  place-items: center;
+  padding: 12px 6px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--ivory);
+}
+
+.mb-btn.mb-primary {
+  background: var(--gold-grad);
+  color: var(--noir);
+  font-weight: 600;
+}
+
+/* ---------- Reveal on scroll ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes rise {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 150px;
+  }
+
+  .hero-visual {
+    width: min(400px, 80vw);
+  }
+
+  .booking,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ledger {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+
+  .line-slide {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    align-content: center;
+  }
+
+  .line-art {
+    order: -1;
+    width: min(260px, 64vw);
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    padding-block: 18px;
+  }
+
+  .brand-en {
+    font-size: 1.5rem;
+  }
+
+  .brand-fa {
+    display: none;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lines-controls {
+    justify-content: flex-start;
+  }
+
+  .lines-buttons {
+    margin-inline-start: auto;
+  }
+
+  .insta-card {
+    aspect-ratio: auto;
+    min-height: 260px;
+  }
+}
+
+/* ---------- Service guide and FAQ ---------- */
+.guide {
+  background: var(--noir-2);
+  border-top: 1px solid var(--hair);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.guide-item {
+  border-top: 1px solid var(--hair);
+}
+
+.guide-item:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.guide-item summary,
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: color 0.4s;
+}
+
+.guide-item summary::-webkit-details-marker,
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-item summary::after,
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--display);
+  font-size: 1.6rem;
+  color: var(--champagne);
+  transition: transform 0.5s var(--ease);
+}
+
+.guide-item[open] summary::after,
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.guide-item summary:hover {
+  color: var(--champagne);
+}
+
+.guide-price {
+  margin-inline-start: auto;
+  font-size: 0.92rem;
+  color: var(--champagne);
+  white-space: nowrap;
+}
+
+.guide-body {
+  padding: 0 0 26px;
+}
+
+.guide-body p,
+.faq-item p {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.faq-title {
+  margin: 0 0 24px;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+.faq-title em {
+  font-style: normal;
+  font-weight: 600;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.faq-item {
+  border-top: 1px solid var(--hair);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.faq-item summary {
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Morph gallery ---------- */
+.gallery {
+  background: var(--noir);
+}
+
+.morph {
+  position: relative;
+  height: min(78svh, 720px);
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  border-radius: 4px;
+  background: var(--noir-3);
+  touch-action: pan-y;
+}
+
+.morph:focus-visible {
+  outline: 1px solid var(--champagne);
+  outline-offset: 6px;
+}
+
+.morph canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
+}
+
+.morph canvas.is-ready {
+  opacity: 1;
+}
+
+.morph-fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.morph-fallback-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.9s var(--ease);
+}
+
+.morph::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 45%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(13, 11, 10, 0.85), transparent);
+}
+
+.morph-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 185, 138, 0.4);
+  background: rgba(13, 11, 10, 0.45);
+  color: var(--champagne);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transform: translateY(-50%);
+  transition: background-color 0.4s, border-color 0.4s, transform 0.4s var(--ease);
+}
+
+.morph-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.morph-arrow:hover:not(:disabled) {
+  background: var(--gold-grad);
+  color: var(--noir);
+  border-color: transparent;
+}
+
+.morph-prev {
+  right: 20px;
+}
+
+.morph-next {
+  left: 20px;
+}
+
+.morph-caption {
+  position: absolute;
+  inset-inline: 28px;
+  bottom: 110px;
+  z-index: 3;
+  display: grid;
+  gap: 4px;
+}
+
+.morph-num {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--champagne);
+}
+
+.morph-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.morph-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.morph-thumbs {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 22px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.morph-thumbs button {
+  display: block;
+  width: 76px;
+  height: 48px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  opacity: 0.5;
+  transition: opacity 0.4s, border-color 0.4s;
+}
+
+.morph-thumbs button[aria-current="true"] {
+  opacity: 1;
+  border-color: var(--champagne);
+}
+
+.morph-thumbs img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 560px) {
+  .morph-thumbs {
+    display: none;
+  }
+
+  .morph-caption {
+    bottom: 40px;
+  }
+
+  .morph-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Declared last so the phone layout overrides the base rules above */
+@media (max-width: 720px) {
+  .wa-float {
+    display: none;
+  }
+
+  .mobile-bar {
+    display: grid;
+  }
+
+  body {
+    padding-bottom: 88px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .line-art .draw path,
+  .line-art .draw circle {
+    stroke-dashoffset: 0;
+  }
+}
+
+</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "ولورا",
+    "alternateName": "Velora",
+    "description": "سالن زیبایی ولورا؛ کاشت و ترمیم ناخن، ابرو و مژه، رنگ و کوتاهی مو.",
+    "telephone": ["+989365370582", "+989193220038"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "پیروزی، پرستار جنوبی، بین چهارراه ائمه اطهار و چهارراه صاحب الزمان، جنب کوچه سماواتیان، پلاک ۹۳ واحد ۲",
+      "addressLocality": "تهران",
+      "addressCountry": "IR"
+    },
+    "sameAs": ["https://www.instagram.com/velorabeauty2020/"]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#top" class="brand" aria-label="ولورا - صفحه اصلی">
+      <span class="brand-en">Velora</span>
+      <span class="brand-fa">ولورا</span>
+    </a>
+    <nav class="nav" aria-label="ناوبری اصلی">
+      <a href="#lines">خدمات</a>
+      <a href="#prices">قیمت‌ها</a>
+      <a href="#contact">تماس</a>
+    </nav>
+    <a href="#booking" class="btn btn-gold btn-sm">رزرو نوبت</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">سالن زیبایی · پیروزی</p>
+        <h1 class="hero-title" aria-label="زیبایی را با درخشش تجربه کنید">
+          <span class="line"><span class="word" style="--d:0">زیبایی را</span></span>
+          <span class="line"><span class="word" style="--d:1">با <em>درخشش</em></span></span>
+          <span class="line"><span class="word" style="--d:2">تجربه کنید</span></span>
+        </h1>
+        <p class="hero-sub">کاشت و ترمیم ناخن، ابرو و مژه، رنگ و کوتاهی مو. تمامی خدمات با <strong>تخفیف ویژه</strong> و به مدت محدود.</p>
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-gold">رزرو نوبت</a>
+          <a href="#prices" class="btn btn-line">مشاهده قیمت‌ها</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="orbit" viewBox="0 0 400 400">
+          <defs>
+            <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f3e2bf"/>
+              <stop offset=".45" stop-color="#b89457"/>
+              <stop offset="1" stop-color="#6e5226"/>
+            </linearGradient>
+            <path id="ringPath" d="M200,200 m-170,0 a170,170 0 1,1 340,0 a170,170 0 1,1 -340,0"/>
+          </defs>
+          <g class="orbit-rings" fill="none" stroke="url(#gold)" stroke-width="1">
+            <ellipse cx="200" cy="200" rx="150" ry="58"/>
+            <ellipse cx="200" cy="200" rx="150" ry="58" transform="rotate(60 200 200)"/>
+            <ellipse cx="200" cy="200" rx="150" ry="58" transform="rotate(120 200 200)"/>
+            <circle cx="200" cy="200" r="120" stroke-dasharray="2 6"/>
+          </g>
+          <text class="ring-text"><textPath href="#ringPath" startOffset="0">کاشت ناخن · رنگ ریشه · فیبروز ابرو · مژه موقت · ژلیش پا · رنگ‌ساژ · ترمیم ناخن · اصلاح ابرو · کوتاهی ·</textPath></text>
+          <circle cx="200" cy="200" r="46" fill="url(#gold)"/>
+          <text x="200" y="214" text-anchor="middle" class="core-v">V</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ================= MARQUEE (outlined type) ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-row">
+        <span>کاشت ناخن</span><span>رنگ ریشه</span><span>فیبروز ابرو</span><span>مژه موقت</span><span>ژلیش پا</span><span>رنگ‌ساژ</span><span>ترمیم ناخن</span><span>اصلاح ابرو</span><span>کوتاهی</span>
+        <span>کاشت ناخن</span><span>رنگ ریشه</span><span>فیبروز ابرو</span><span>مژه موقت</span><span>ژلیش پا</span><span>رنگ‌ساژ</span><span>ترمیم ناخن</span><span>اصلاح ابرو</span><span>کوتاهی</span>
+      </div>
+    </div>
+
+    <!-- ================= LINES SLIDER ================= -->
+    <section id="lines" class="lines section" aria-labelledby="lines-title">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">۰۱ — خطوط خدماتی</p>
+        <h2 id="lines-title" class="section-title">سه خط، یک <em>سلیقه</em></h2>
+        <p>هر خط با فضای رنگی خودش. با کشیدن یا دکمه‌ها جابه‌جا شوید.</p>
+      </header>
+
+      <div class="lines-viewport" tabindex="0" role="region" aria-roledescription="اسلایدر" aria-label="خطوط خدماتی">
+        <div class="lines-track">
+
+          <article class="line-slide" data-bg="#2a1219" data-fg="#f3e8d6" data-accent="#d9b98a">
+            <div class="line-copy">
+              <span class="line-num">01</span>
+              <h3 class="line-name">مو</h3>
+              <p class="line-latin">Hair</p>
+              <p class="line-desc">رنگ ریشه، رنگ‌ساژ و کوتاهی، با تخفیف ویژه.</p>
+              <ul class="tags"><li>رنگ ریشه</li><li>رنگ‌ساژ</li><li>کوتاهی</li></ul>
+              <a href="#prices" class="link-arrow">قیمت‌های این خط</a>
+            </div>
+            <div class="line-art">
+              <svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" class="draw">
+                <path pathLength="1" d="M70 20 C 150 70, 40 120, 150 170 S 260 250, 180 290"/>
+                <path pathLength="1" d="M120 10 C 210 70, 90 130, 200 180 S 280 240, 230 290"/>
+                <path pathLength="1" d="M170 5 C 250 60, 160 130, 250 190 S 300 250, 270 295"/>
+                <path pathLength="1" d="M30 60 C 110 100, 20 170, 110 210 S 190 270, 140 298"/>
+                <path pathLength="1" d="M215 0 C 180 80, 290 120, 230 200 S 170 260, 200 300"/>
+              </svg>
+            </div>
+          </article>
+
+          <article class="line-slide" data-bg="#efe6d6" data-fg="#1d1714" data-accent="#8c6a36">
+            <div class="line-copy">
+              <span class="line-num">02</span>
+              <h3 class="line-name">ناخن</h3>
+              <p class="line-latin">Nails</p>
+              <p class="line-desc">کاشت، ترمیم و ژلیش پا؛ با دقت در هر خط.</p>
+              <ul class="tags"><li>کاشت ناخن</li><li>ترمیم ناخن</li><li>ژلیش پا</li></ul>
+              <a href="#prices" class="link-arrow">قیمت‌های این خط</a>
+            </div>
+            <div class="line-art">
+              <svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" class="draw">
+                <path pathLength="1" d="M150 20 C 215 60, 232 150, 210 210 C 195 255, 170 282, 150 284 C 130 282, 105 255, 90 210 C 68 150, 85 60, 150 20 Z"/>
+                <path pathLength="1" d="M150 60 C 190 100, 196 160, 180 205 C 170 236, 158 254, 150 256 C 142 254, 130 236, 120 205 C 104 160, 110 100, 150 60 Z"/>
+                <path pathLength="1" d="M60 270 C 120 230, 190 236, 250 262"/>
+                <circle pathLength="1" cx="150" cy="150" r="14"/>
+              </svg>
+            </div>
+          </article>
+
+          <article class="line-slide" data-bg="#0d0b0a" data-fg="#f3e8d6" data-accent="#d9b98a">
+            <div class="line-copy">
+              <span class="line-num">03</span>
+              <h3 class="line-name">ابرو و مژه</h3>
+              <p class="line-latin">Brows &amp; Lashes</p>
+              <p class="line-desc">فیبروز و اصلاح ابرو، همراه با مژه موقت.</p>
+              <ul class="tags"><li>فیبروز ابرو</li><li>اصلاح ابرو</li><li>مژه موقت</li></ul>
+              <a href="#prices" class="link-arrow">قیمت‌های این خط</a>
+            </div>
+            <div class="line-art">
+              <svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" class="draw">
+                <path pathLength="1" d="M30 170 C 80 110, 200 100, 275 150"/>
+                <path pathLength="1" d="M30 170 C 90 230, 210 230, 275 150"/>
+                <path pathLength="1" d="M60 165 C 130 130, 200 128, 260 152"/>
+                <path pathLength="1" d="M92 185 L 84 210"/>
+                <path pathLength="1" d="M122 175 L 116 206"/>
+                <path pathLength="1" d="M152 172 L 150 204"/>
+                <path pathLength="1" d="M182 176 L 186 206"/>
+                <path pathLength="1" d="M212 182 L 222 207"/>
+                <circle pathLength="1" cx="152" cy="168" r="18"/>
+              </svg>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="lines-controls">
+        <div class="lines-meta">
+          <span class="lines-count latin-num" aria-live="polite">۰۱ / ۰۳</span>
+          <div class="lines-progress"><span></span></div>
+        </div>
+        <div class="lines-buttons">
+          <button class="round" type="button" data-prev aria-label="خط قبلی">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="round" type="button" data-next aria-label="خط بعدی">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MORPH GALLERY ================= -->
+    <section id="gallery" class="gallery section" aria-labelledby="gallery-title">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">گالری</p>
+        <h2 id="gallery-title" class="section-title">نگاهی به <em>ولورا</em></h2>
+        <p>گذار بین هر تصویر با دانه‌های نوری انجام می‌شود. با دکمه‌ها یا کشیدن جابه‌جا شوید.</p>
+      </header>
+
+      <div class="morph" data-morph tabindex="0" role="region" aria-roledescription="اسلایدر" aria-label="گالری ولورا">
+        <canvas aria-hidden="true"></canvas>
+        <div class="morph-fallback" hidden></div>
+
+        <button class="morph-arrow morph-prev" type="button" aria-label="تصویر قبلی">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </button>
+        <button class="morph-arrow morph-next" type="button" aria-label="تصویر بعدی">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+
+        <div class="morph-caption" aria-live="polite">
+          <span class="morph-num latin-num">۰۱ / ۰۴</span>
+          <span class="morph-title">مو</span>
+          <span class="morph-sub">رنگ ریشه، رنگ‌ساژ و کوتاهی</span>
+        </div>
+
+        <ul class="morph-thumbs"></ul>
+      </div>
+    </section>
+
+    <!-- ================= PRICE LEDGER ================= -->
+    <section id="prices" class="prices section" aria-labelledby="prices-title">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">۰۲ — فهرست قیمت</p>
+        <h2 id="prices-title" class="section-title">تخفیف <em>ویژه</em></h2>
+        <p>تمامی خدمات به مدت محدود. روی هر خدمت بزنید تا در فرم رزرو انتخاب شود.</p>
+      </header>
+
+      <div class="ledger">
+        <div class="ledger-group" data-reveal>
+          <h3 class="ledger-title"><span class="latin">I.</span> مو</h3>
+          <ul>
+            <li><a href="#booking" data-service="کوتاهی"><span class="svc">کوتاهی</span><span class="leader"></span><span class="price"><b>۲۴۸٬۰۰۰</b> تومان</span></a></li>
+            <li><a href="#booking" data-service="رنگ ریشه"><span class="svc">رنگ ریشه</span><span class="leader"></span><span class="price"><b>۴۹۸٬۰۰۰</b> تومان</span></a></li>
+            <li><a href="#booking" data-service="رنگ‌ساژ"><span class="svc">رنگ‌ساژ</span><span class="leader"></span><span class="price"><b>۵۹۸٬۰۰۰</b> تومان</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ledger-group" data-reveal>
+          <h3 class="ledger-title"><span class="latin">II.</span> ناخن</h3>
+          <ul>
+            <li><a href="#booking" data-service="کاشت ناخن"><span class="svc">کاشت ناخن</span><span class="leader"></span><span class="price"><b>۵۹۸٬۰۰۰</b> تومان</span></a></li>
+            <li><a href="#booking" data-service="ترمیم ناخن"><span class="svc">ترمیم ناخن</span><span class="leader"></span><span class="price"><b>۴۴۸٬۰۰۰</b> تومان</span></a></li>
+            <li><a href="#booking" data-service="ژلیش پا"><span class="svc">ژلیش پا</span><span class="leader"></span><span class="price"><b>۲۴۸٬۰۰۰</b> تومان</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ledger-group" data-reveal>
+          <h3 class="ledger-title"><span class="latin">III.</span> ابرو و مژه</h3>
+          <ul>
+            <li><a href="#booking" data-service="فیبروز ابرو"><span class="svc">فیبروز ابرو</span><span class="leader"></span><span class="price"><b>۲٬۳۸۰٬۰۰۰</b> تومان</span></a></li>
+            <li><a href="#booking" data-service="اصلاح ابرو"><span class="svc">اصلاح ابرو</span><span class="leader"></span><span class="price"><b>۲۴۸٬۰۰۰</b> تومان</span></a></li>
+            <li><a href="#booking" data-service="مژه موقت"><span class="svc">مژه موقت</span><span class="leader"></span><span class="price"><b>۳۴۸٬۰۰۰</b> تومان</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICE GUIDE ================= -->
+    <section id="guide" class="guide section" aria-labelledby="guide-title">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">۰۳ — راهنمای خدمات</p>
+        <h2 id="guide-title" class="section-title">هر خدمت را <em>بشناسید</em></h2>
+        <p>برای دیدن توضیح هر خدمت روی آن بزنید. برای پرسیدن زمان خالی، مستقیم در واتساپ پیام دهید.</p>
+      </header>
+
+      <div class="guide-grid">
+        <div class="guide-list" data-reveal>
+          <details class="guide-item" open>
+            <summary><span>کوتاهی</span><span class="guide-price">۲۴۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>کوتاهی و فرم‌دهی مو متناسب با چهره و بافت موی شما.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="کوتاهی">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="کوتاهی" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>رنگ ریشه</span><span class="guide-price">۴۹۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>رنگ کردن ریشه‌های سفید یا رشدیافته برای یکدست‌شدن رنگ مو.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="رنگ ریشه">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="رنگ ریشه" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>رنگ‌ساژ</span><span class="guide-price">۵۹۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>تازه‌کردن و درخشان‌کردن رنگ موجود مو، با حالتی ملایم‌تر از رنگ کامل.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="رنگ‌ساژ">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="رنگ‌ساژ" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>کاشت ناخن</span><span class="guide-price">۵۹۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>ساختن یا بلندکردن ناخن با ژل برای ظاهری مرتب و ماندگار.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="کاشت ناخن">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="کاشت ناخن" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>ترمیم ناخن</span><span class="guide-price">۴۴۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>اصلاح ناخن شکسته یا آسیب‌دیده با پرکردن و تقویت آن.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="ترمیم ناخن">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="ترمیم ناخن" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>ژلیش پا</span><span class="guide-price">۲۴۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>لاک ژلی ماندگار برای ناخن پا.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="ژلیش پا">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="ژلیش پا" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>فیبروز ابرو</span><span class="guide-price">۲٬۳۸۰٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>فرم‌دهی ابرو با تکنیک فیبروز برای ظاهری مرتب و پرپشت‌تر.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="فیبروز ابرو">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="فیبروز ابرو" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>اصلاح ابرو</span><span class="guide-price">۲۴۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>مرتب‌کردن و فرم‌دادن ابرو متناسب با شکل صورت.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="اصلاح ابرو">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="اصلاح ابرو" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="guide-item">
+            <summary><span>مژه موقت</span><span class="guide-price">۳۴۸٬۰۰۰ تومان</span></summary>
+            <div class="guide-body">
+              <p>اکستنشن مژه با ماندگاری موقت برای نگاهی پرکشش‌تر.</p>
+              <div class="guide-actions">
+                <a href="#booking" class="btn btn-gold btn-sm" data-service="مژه موقت">رزرو این خدمت</a>
+                <a href="#" class="btn btn-line btn-sm" data-wa-service="مژه موقت" target="_blank" rel="noopener">پیام در واتساپ</a>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq" data-reveal>
+          <h3 class="faq-title">سؤال‌های <em>متداول</em></h3>
+          <details class="faq-item">
+            <summary>برای رزرو چه کار باید بکنم؟</summary>
+            <p>فرم رزرو را پر کنید یا مستقیم در واتساپ پیام دهید. زمان خالی را با شما هماهنگ می‌کنیم.</p>
+          </details>
+          <details class="faq-item">
+            <summary>ساعت کاری سالن چیست؟</summary>
+            <p>از ساعت ۸ صبح، تمام روزهای هفته.</p>
+          </details>
+          <details class="faq-item">
+            <summary>می‌توانم نوبتم را تغییر دهم؟</summary>
+            <p>بله. برای تغییر زمان با ما در واتساپ یا تلفن تماس بگیرید.</p>
+          </details>
+          <details class="faq-item">
+            <summary>تخفیف ویژه تا چه زمانی است؟</summary>
+            <p>تخفیف به مدت محدود است. برای اطلاع از زمان دقیق پایان تخفیف با ما تماس بگیرید.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOOKING ================= -->
+    <section id="booking" class="booking section" aria-labelledby="booking-title">
+      <div class="booking-intro" data-reveal>
+        <p class="eyebrow">۰۴ — رزرو</p>
+        <h2 id="booking-title" class="section-title">نوبت خود را <em>رزرو</em> کنید</h2>
+        <p>درخواست خود را ثبت کنید، یا برای هماهنگی با <span class="latin-num">۰۹۱۹ ۳۲۲ ۰۰۳۸</span> تماس بگیرید و در واتساپ پیام دهید.</p>
+      </div>
+
+      <form id="booking-form" class="booking-form" novalidate data-reveal>
+        <label>
+          نام و نام خانوادگی
+          <input name="name" autocomplete="name" required>
+        </label>
+        <label>
+          شماره تماس
+          <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="۰۹۱۲۰۰۰۰۰۰۰" required>
+        </label>
+        <label>
+          خدمت
+          <select name="service">
+            <option value="کوتاهی">کوتاهی — ۲۴۸٬۰۰۰ تومان</option>
+            <option value="رنگ ریشه">رنگ ریشه — ۴۹۸٬۰۰۰ تومان</option>
+            <option value="رنگ‌ساژ">رنگ‌ساژ — ۵۹۸٬۰۰۰ تومان</option>
+            <option value="کاشت ناخن">کاشت ناخن — ۵۹۸٬۰۰۰ تومان</option>
+            <option value="ترمیم ناخن">ترمیم ناخن — ۴۴۸٬۰۰۰ تومان</option>
+            <option value="ژلیش پا">ژلیش پا — ۲۴۸٬۰۰۰ تومان</option>
+            <option value="فیبروز ابرو">فیبروز ابرو — ۲٬۳۸۰٬۰۰۰ تومان</option>
+            <option value="اصلاح ابرو">اصلاح ابرو — ۲۴۸٬۰۰۰ تومان</option>
+            <option value="مژه موقت">مژه موقت — ۳۴۸٬۰۰۰ تومان</option>
+            <option value="سایر">سایر (در توضیحات بنویسید)</option>
+          </select>
+        </label>
+        <label>
+          تاریخ دلخواه
+          <input name="date" type="text" placeholder="مثلاً ۲۵ مهر یا هر روز هفته">
+        </label>
+        <label class="full">
+          ساعت یا توضیحات
+          <textarea name="note" rows="3" placeholder="ساعت دلخواه یا هر توضیحی که لازم است"></textarea>
+        </label>
+        <div class="full form-foot">
+          <button class="btn btn-gold" type="submit">ارسال درخواست</button>
+          <a class="btn btn-line wa-link" href="#" target="_blank" rel="noopener" hidden>ادامه در واتساپ</a>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact section" aria-labelledby="contact-title">
+      <div class="contact-grid">
+        <div data-reveal>
+          <p class="eyebrow">۰۵ — تماس و آدرس</p>
+          <h2 id="contact-title" class="section-title">ما را <em>پیدا</em> کنید</h2>
+          <ul class="contact-list">
+            <li>
+              <span class="label">آدرس</span>
+              <span>پیروزی، پرستار جنوبی، بین چهارراه ائمه اطهار و چهارراه صاحب الزمان، جنب کوچه سماواتیان، پلاک ۹۳ واحد ۲</span>
+            </li>
+            <li>
+              <span class="label">ساعت کاری</span>
+              <span>از ساعت ۸ صبح، تمام روزهای هفته</span>
+            </li>
+            <li>
+              <span class="label">تماس و واتساپ</span>
+              <span class="phones">
+                <a href="tel:+989365370582" class="latin-num">۰۹۳۶۵ ۳۷۰ ۵۸۲</a>
+                <a href="tel:+989193220038" class="latin-num">۰۹۱۹ ۳۲۲ ۰۰۳۸</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <a class="insta-card" href="https://www.instagram.com/velorabeauty2020/" target="_blank" rel="noopener" data-reveal>
+          <span class="insta-kicker">اینستاگرام</span>
+          <span class="insta-handle latin">@velorabeauty2020</span>
+          <span class="insta-go">ادامه در اینستاگرام ←</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-en">Velora</span>
+        <p>سالن زیبایی ولورا</p>
+      </div>
+      <nav aria-label="پیوندهای فوتر">
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="#lines">خدمات</a></li>
+          <li><a href="#prices">قیمت‌ها</a></li>
+          <li><a href="#booking">رزرو نوبت</a></li>
+          <li><a href="#contact">تماس و آدرس</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>شبکه‌های اجتماعی</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/velorabeauty2020/" target="_blank" rel="noopener" class="latin">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-mark" aria-hidden="true">VELORA</p>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/989193220038" target="_blank" rel="noopener" aria-label="پیام در واتساپ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.5-4.2A8 8 0 1 1 20 11.5z"/><path d="M9 10.5c.3 1.9 1.7 3.6 3.6 4.4l1.2-1.2 1.6.6"/></svg>
+  </a>
+
+  <nav class="mobile-bar" aria-label="اقدام سریع">
+    <a href="#booking" class="mb-btn mb-primary">رزرو نوبت</a>
+    <a href="https://wa.me/989193220038" target="_blank" rel="noopener" class="mb-btn">واتساپ</a>
+    <a href="tel:+989193220038" class="mb-btn">تماس</a>
+  </nav>
+
+<script>
+/* Morph Gallery — dependency-free port of components/ui/morph-gallery.tsx.
+ * Slides dissolve through fbm noise in a single WebGL pass. Falls back to a
+ * DOM opacity cross-fade when WebGL is unavailable or a texture fails.
+ * Exposes window.MorphGallery.create(root, options). */
+(() => {
+  const VERT = `
+attribute vec2 a_position;
+varying vec2 v_uv;
+void main() {
+  v_uv = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}
+`;
+
+  const FRAG = `
+precision highp float;
+
+uniform sampler2D u_from;
+uniform sampler2D u_to;
+uniform float u_progress;
+uniform vec2 u_resolution;
+uniform float u_fromAspect;
+uniform float u_toAspect;
+uniform float u_scale;
+uniform float u_direction;
+uniform float u_edge;
+uniform float u_drift;
+
+varying vec2 v_uv;
+
+vec3 permute(vec3 x) {
+  return mod(((x * 34.0) + 1.0) * x, 289.0);
+}
+
+float snoise(vec2 v) {
+  const vec4 C = vec4(
+    0.211324865405187,
+    0.366025403784439,
+   -0.577350269189626,
+    0.024390243902439
+  );
+  vec2 i  = floor(v + dot(v, C.yy));
+  vec2 x0 = v - i + dot(i, C.xx);
+  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+  vec4 x12 = x0.xyxy + C.xxzz;
+  x12.xy -= i1;
+  i = mod(i, 289.0);
+  vec3 p = permute(
+    permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0)
+  );
+  vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+  m = m * m;
+  m = m * m;
+  vec3 x  = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h  = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+
+float fbm(vec2 v) {
+  float value = 0.0;
+  float amplitude = 0.5;
+  for (int i = 0; i < 5; i++) {
+    value += amplitude * snoise(v);
+    v *= 2.0;
+    amplitude *= 0.5;
+  }
+  return value;
+}
+
+vec2 mirror(vec2 uv) {
+  return 1.0 - abs(1.0 - mod(uv, 2.0));
+}
+
+vec2 coverUV(vec2 uv, float imgAspect) {
+  float canvasAspect = u_resolution.x / u_resolution.y;
+  vec2 scale = (canvasAspect > imgAspect)
+    ? vec2(1.0, imgAspect / canvasAspect)
+    : vec2(canvasAspect / imgAspect, 1.0);
+  return mirror((uv - 0.5) * scale + 0.5);
+}
+
+void main() {
+  float adjusted = u_progress * (1.0 + 2.0 * u_edge) - u_edge;
+
+  float noise = fbm(v_uv * u_scale + vec2(0.0, u_progress * u_direction)) * 0.5 + 0.5;
+  noise = smoothstep(
+    0.0,
+    2.0,
+    length(texture2D(u_to, coverUV(v_uv, u_toAspect)).rgb) + noise
+  );
+
+  float mixFactor = 1.0 - smoothstep(adjusted - u_edge, adjusted + u_edge, noise);
+
+  vec2 fromUV = coverUV(
+    v_uv + vec2(0.0, noise * u_progress * u_drift * u_direction),
+    u_fromAspect
+  );
+  vec2 toUV = coverUV(
+    v_uv + vec2(0.0, noise * (1.0 - u_progress) * -0.5 * u_drift * u_direction),
+    u_toAspect
+  );
+
+  gl_FragColor = mix(texture2D(u_from, fromUV), texture2D(u_to, toUV), mixFactor);
+}
+`;
+
+  const wrapIndex = (i, n, loop) => {
+    if (n <= 0) return 0;
+    return loop ? ((i % n) + n) % n : Math.min(Math.max(i, 0), n - 1);
+  };
+
+  const easeInOutQuint = (t) => {
+    const x = Math.min(Math.max(t, 0), 1);
+    return x < 0.5 ? 16 * x ** 5 : 1 - (-2 * x + 2) ** 5 / 2;
+  };
+
+  const compile = (gl, type, src) => {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, src);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      const log = gl.getShaderInfoLog(shader);
+      gl.deleteShader(shader);
+      throw new Error("shader compile failed: " + log);
+    }
+    return shader;
+  };
+
+  const link = (gl) => {
+    const vert = compile(gl, gl.VERTEX_SHADER, VERT);
+    const frag = compile(gl, gl.FRAGMENT_SHADER, FRAG);
+    const program = gl.createProgram();
+    gl.attachShader(program, vert);
+    gl.attachShader(program, frag);
+    gl.linkProgram(program);
+    gl.deleteShader(vert);
+    gl.deleteShader(frag);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      const log = gl.getProgramInfoLog(program);
+      gl.deleteProgram(program);
+      throw new Error("program link failed: " + log);
+    }
+    return program;
+  };
+
+  /**
+   * items: [{ source: HTMLImageElement | HTMLCanvasElement, alt, thumb? }]
+   * Images must be same-origin or CORS-enabled to be uploaded to WebGL.
+   */
+  const create = (root, items, opts = {}) => {
+    const cfg = {
+      duration: 1500,
+      noiseScale: 3.5,
+      edge: 0.15,
+      drift: 0.5,
+      loop: true,
+      autoplay: 0,
+      defaultIndex: 0,
+      onChange: null,
+      ...opts,
+    };
+    const n = items.length;
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let active = wrapIndex(cfg.defaultIndex, n, cfg.loop);
+    let paused = false;
+    let timer = 0;
+
+    const canvas = root.querySelector("canvas");
+    const fallback = root.querySelector(".morph-fallback");
+
+    // ---- WebGL ---------------------------------------------------------------
+    let gl = null;
+    let program = null;
+    let buffer = null;
+    const textures = items.map(() => null);
+    const aspects = items.map(() => 1);
+    let uniforms = {};
+    let raf = 0;
+    let from = active;
+    let to = active;
+    let progress = 1;
+    let startedAt = 0;
+    let direction = 1;
+    let request = null;
+    let previous = active;
+
+    const showFallback = () => {
+      if (canvas) canvas.hidden = true;
+      if (!fallback) return;
+      fallback.hidden = false;
+      fallback.innerHTML = "";
+      items.forEach((item, i) => {
+        const img = document.createElement("img");
+        img.src = item.src || item.source.toDataURL();
+        img.alt = item.alt || "";
+        img.className = "morph-fallback-img";
+        img.style.opacity = i === active ? "1" : "0";
+        fallback.appendChild(img);
+      });
+      root.classList.add("is-fallback");
+    };
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.round(canvas.clientWidth * dpr);
+      const h = Math.round(canvas.clientHeight * dpr);
+      if (!w || !h || (canvas.width === w && canvas.height === h)) return;
+      canvas.width = w;
+      canvas.height = h;
+      gl.viewport(0, 0, w, h);
+    };
+
+    const pick = (i) => textures[i] || textures.find(Boolean) || null;
+
+    const draw = () => {
+      const pending = request;
+      if (pending) {
+        request = null;
+        from = pending.from;
+        to = pending.to;
+        progress = 0;
+        startedAt = performance.now();
+        // The shortest way round, so a wrap drifts forward like any other step.
+        const forward = cfg.loop
+          ? ((pending.to - pending.from + n) % n) * 2 <= n
+          : pending.to > pending.from;
+        direction = forward ? 1 : -1;
+      }
+
+      if (progress < 1) {
+        const span = reduced ? 0 : Math.max(cfg.duration, 1);
+        const elapsed = performance.now() - startedAt;
+        progress = span === 0 ? 1 : easeInOutQuint(Math.min(elapsed / span, 1));
+      }
+
+      const fromTex = pick(from);
+      const toTex = pick(to);
+      if (!fromTex || !toTex) return;
+
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, fromTex);
+      gl.uniform1i(uniforms.from, 0);
+      gl.activeTexture(gl.TEXTURE1);
+      gl.bindTexture(gl.TEXTURE_2D, toTex);
+      gl.uniform1i(uniforms.to, 1);
+
+      gl.uniform1f(uniforms.progress, progress);
+      gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
+      gl.uniform1f(uniforms.fromAspect, aspects[from] || 1);
+      gl.uniform1f(uniforms.toAspect, aspects[to] || 1);
+      gl.uniform1f(uniforms.scale, cfg.noiseScale);
+      gl.uniform1f(uniforms.direction, direction);
+      gl.uniform1f(uniforms.edge, Math.max(cfg.edge, 0.001));
+      gl.uniform1f(uniforms.drift, cfg.drift);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    };
+
+    const frame = () => {
+      if (!document.hidden) draw();
+      raf = requestAnimationFrame(frame);
+    };
+
+    const initWebGL = () => {
+      gl = canvas.getContext("webgl", { alpha: false, antialias: false });
+      if (!gl) return false;
+
+      program = link(gl);
+      gl.useProgram(program);
+
+      buffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+      const loc = gl.getAttribLocation(program, "a_position");
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+      ["from", "to", "progress", "resolution", "fromAspect", "toAspect", "scale", "direction", "edge", "drift"]
+        .forEach((name) => { uniforms[name] = gl.getUniformLocation(program, "u_" + name); });
+
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+
+      // Upload each texture as it becomes available; the loop starts on the first one.
+      let running = false;
+      items.forEach((item, i) => {
+        try {
+          const tex = gl.createTexture();
+          gl.bindTexture(gl.TEXTURE_2D, tex);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, item.source);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          textures[i] = tex;
+          aspects[i] = item.source.width / Math.max(item.source.height, 1);
+          if (!running) {
+            running = true;
+            resize();
+            canvas.classList.add("is-ready");
+            raf = requestAnimationFrame(frame);
+          }
+        } catch (err) {
+          // A tainted or undecodable source costs one slide, not the gallery.
+          console.warn("morph: texture " + i + " skipped", err);
+        }
+      });
+      return running;
+    };
+
+    const go = (next) => {
+      const wrapped = wrapIndex(next, n, cfg.loop);
+      if (wrapped === active) return;
+      previous = active;
+      active = wrapped;
+      if (gl && textures.some(Boolean)) request = { from: previous, to: active };
+      update();
+      if (cfg.onChange) cfg.onChange(active);
+      if (fallback && root.classList.contains("is-fallback")) {
+        [...fallback.children].forEach((img, i) => { img.style.opacity = i === active ? "1" : "0"; });
+      }
+    };
+
+    // Autoplay: pauses while hovered, focused, or when the tab is hidden.
+    const restartTimer = () => {
+      clearInterval(timer);
+      if (!cfg.autoplay || reduced || paused || n < 2) return;
+      timer = setInterval(() => go(active + 1), Math.max(cfg.autoplay, 600));
+    };
+
+    const update = () => {
+      root.dispatchEvent(new CustomEvent("morphchange", { detail: { index: active } }));
+      restartTimer();
+    };
+
+    // ---- start ------------------------------------------------------------------
+    try {
+      if (!initWebGL()) throw new Error("no webgl");
+      const onLost = (e) => { e.preventDefault(); cancelAnimationFrame(raf); };
+      canvas.addEventListener("webglcontextlost", onLost);
+      new ResizeObserver(() => { if (gl) resize(); }).observe(canvas);
+    } catch (err) {
+      console.warn("morph: falling back to cross-fade", err);
+      showFallback();
+    }
+
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(active + 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(active - 1); }
+    });
+    root.addEventListener("mouseenter", () => { paused = true; restartTimer(); });
+    root.addEventListener("mouseleave", () => { paused = false; restartTimer(); });
+    root.addEventListener("focusin", () => { paused = true; restartTimer(); });
+    root.addEventListener("focusout", () => { paused = false; restartTimer(); });
+    document.addEventListener("visibilitychange", () => {
+      paused = document.hidden;
+      restartTimer();
+    });
+
+    let swipeX = null;
+    root.addEventListener("pointerdown", (e) => { swipeX = e.clientX; });
+    root.addEventListener("pointerup", (e) => {
+      if (swipeX === null) return;
+      const dx = e.clientX - swipeX;
+      swipeX = null;
+      if (Math.abs(dx) > 48) go(active + (dx < 0 ? 1 : -1));
+    });
+
+    update();
+    return { go, get index() { return active; } };
+  };
+
+  window.MorphGallery = { create, wrapIndex, easeInOutQuint };
+})();
+
+</script>
+<script>
+/* Velora — interactions */
+(() => {
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = matchMedia("(pointer: fine) and (hover: hover)").matches;
+  const toFa = (n) => String(n).padStart(2, "0").replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+  const toLatinDigits = (s) => s.replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+
+  /* ---------- Header state ---------- */
+  const header = $(".site-header");
+  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 40);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Reveal on scroll ---------- */
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  $$("[data-reveal]").forEach((el) => io.observe(el));
+
+  /* ---------- Pointer-driven light and hero parallax ---------- */
+  const glow = $(".glow");
+  const hero = $(".hero");
+
+  if (finePointer && !reduceMotion) {
+    window.addEventListener(
+      "pointermove",
+      (e) => {
+        glow.style.setProperty("--gx", `${e.clientX}px`);
+        glow.style.setProperty("--gy", `${e.clientY}px`);
+      },
+      { passive: true }
+    );
+
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      hero.style.setProperty("--mx", ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
+      hero.style.setProperty("--my", ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
+    });
+  }
+
+  /* ---------- Lines slider: each slide recolors the section and draws its line-art ---------- */
+  const linesSection = $("#lines");
+  const viewport = $(".lines-viewport");
+  const track = $(".lines-track");
+  const slides = $$(".line-slide", track);
+  const prevBtn = $("[data-prev]");
+  const nextBtn = $("[data-next]");
+  const counter = $(".lines-count");
+  const progress = $(".lines-progress span");
+  let current = 0;
+
+  // In RTL the track starts at the right edge, so moving forward means shifting it right (+).
+  const placeTrack = (offsetPx = 0) => {
+    track.style.transform = `translateX(calc(${current * 100}% + ${offsetPx}px))`;
+  };
+
+  function goTo(index) {
+    current = Math.min(Math.max(index, 0), slides.length - 1);
+    placeTrack();
+
+    const slide = slides[current];
+    linesSection.style.setProperty("--bg", slide.dataset.bg);
+    linesSection.style.setProperty("--fg", slide.dataset.fg);
+    linesSection.style.setProperty("--accent", slide.dataset.accent);
+
+    counter.textContent = `${toFa(current + 1)} / ${toFa(slides.length)}`;
+    progress.style.transform = `scaleX(${(current + 1) / slides.length})`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === slides.length - 1;
+
+    slides.forEach((s, i) => {
+      const active = i === current;
+      s.classList.toggle("is-active", active);
+      s.setAttribute("aria-hidden", String(!active));
+    });
+  }
+
+  nextBtn.addEventListener("click", () => goTo(current + 1));
+  prevBtn.addEventListener("click", () => goTo(current - 1));
+
+  // Pointer drag (mouse, touch, pen)
+  let dragging = false;
+  let startX = 0;
+  let dx = 0;
+
+  viewport.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    dragging = true;
+    dx = 0;
+    startX = e.clientX;
+  });
+
+  // Capture only after a real drag starts, so links inside a slide still get clicks.
+  viewport.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    dx = e.clientX - startX;
+    if (Math.abs(dx) < 6) return;
+    if (!track.classList.contains("is-dragging")) {
+      track.classList.add("is-dragging");
+      viewport.setPointerCapture(e.pointerId);
+    }
+    placeTrack(dx);
+  });
+
+  const endDrag = () => {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove("is-dragging");
+    // Dragging right reveals the slide on the left, which is the next one in RTL.
+    if (dx > 60) goTo(current + 1);
+    else if (dx < -60) goTo(current - 1);
+    else goTo(current);
+  };
+  viewport.addEventListener("pointerup", endDrag);
+  viewport.addEventListener("pointercancel", endDrag);
+
+  // Keyboard: arrow keys follow the visual direction of the track
+  viewport.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") goTo(current + 1);
+    if (e.key === "ArrowRight") goTo(current - 1);
+  });
+
+  goTo(0);
+
+  /* ---------- Picking a service pre-selects it in the form ---------- */
+  const serviceSelect = $('select[name="service"]');
+  $$("[data-service]").forEach((link) => {
+    link.addEventListener("click", () => {
+      serviceSelect.value = link.dataset.service;
+    });
+  });
+
+  /* ---------- Booking form (builds a WhatsApp message; optional endpoint) ---------- */
+  const WHATSAPP_NUMBER = "989193220038"; // salon WhatsApp number (09193220038)
+  // Optional: set to an HTTPS endpoint (Apps Script, a form service, an API) to store requests.
+  // Leave empty to use WhatsApp only.
+  const BOOKING_ENDPOINT = "";
+
+  // Per-service WhatsApp buttons open a chat with a prefilled message
+  $$("[data-wa-service]").forEach((link) => {
+    const text = `سلام، می‌خواهم ${link.dataset.waService} رزرو کنم. لطفاً زمان‌های خالی را اعلام کنید.`;
+    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  });
+
+  const form = $("#booking-form");
+  const status = $(".form-status");
+  const waLink = $(".wa-link");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    const phone = toLatinDigits(data.phone || "").replace(/[\s-]/g, "");
+
+    if (!data.name?.trim() || !/^09\d{9}$/.test(phone)) {
+      status.textContent = "لطفاً نام و شماره موبایل معتبر (۰۹…) را وارد کنید.";
+      status.classList.add("is-error");
+      waLink.hidden = true;
+      return;
+    }
+
+    status.classList.remove("is-error");
+    const message = [
+      "سلام، می‌خواهم نوبت بگیرم.",
+      `نام: ${data.name.trim()}`,
+      `شماره: ${phone}`,
+      `خدمت: ${data.service}`,
+      data.date ? `تاریخ: ${data.date}` : null,
+      data.note ? `توضیحات: ${data.note.trim()}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    waLink.hidden = false;
+
+    if (!BOOKING_ENDPOINT) {
+      status.textContent = "درخواست شما آماده است. برای تأیید نهایی نوبت، آن را در واتساپ ارسال کنید.";
+      return;
+    }
+
+    status.textContent = "در حال ثبت درخواست…";
+    fetch(BOOKING_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...data, phone, message }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+        status.textContent = "درخواست شما ثبت شد. برای تأیید سریع‌تر، در واتساپ هم پیام دهید.";
+        form.reset();
+      })
+      .catch(() => {
+        status.textContent = "ثبت درخواست انجام نشد. لطفاً از طریق واتساپ پیام دهید.";
+        status.classList.add("is-error");
+      });
+  });
+  /* ---------- Morph gallery: original artwork in the Velora palette ---------- */
+  const galleryRoot = $("[data-morph]");
+
+  const artCanvas = (w = 1600, h = 1000) => {
+    const c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    return c;
+  };
+
+  const almond = (g, cx, cy, rx, ry) => {
+    g.beginPath();
+    g.moveTo(cx, cy - ry);
+    g.bezierCurveTo(cx + rx * 1.25, cy - ry * 0.35, cx + rx, cy + ry * 0.85, cx, cy + ry);
+    g.bezierCurveTo(cx - rx, cy + ry * 0.85, cx - rx * 1.25, cy - ry * 0.35, cx, cy - ry);
+    g.closePath();
+  };
+
+  const drawArt = {
+    // Strands of hair in soft oxblood and champagne
+    hair(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      const bg = g.createLinearGradient(0, 0, w, h);
+      bg.addColorStop(0, "#2a1219");
+      bg.addColorStop(1, "#0d0b0a");
+      g.fillStyle = bg;
+      g.fillRect(0, 0, w, h);
+      for (let k = 0; k < 46; k++) {
+        const y0 = -60 + (k * (h + 120)) / 46;
+        g.beginPath();
+        g.moveTo(-20, y0);
+        for (let x = 0; x <= w + 40; x += 40) {
+          g.lineTo(x, y0 + Math.sin(x / 260 + k * 0.35) * 110 + Math.sin(x / 90 + k) * 18);
+        }
+        g.strokeStyle = `rgba(217, 185, 138, ${0.12 + (k % 7) / 30})`;
+        g.lineWidth = 1 + (k % 3) * 0.6;
+        g.stroke();
+      }
+    },
+
+    // Almond forms in pale ivory and gold
+    nails(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      const bg = g.createLinearGradient(0, 0, 0, h);
+      bg.addColorStop(0, "#f3e8d6");
+      bg.addColorStop(1, "#d9c3a2");
+      g.fillStyle = bg;
+      g.fillRect(0, 0, w, h);
+      [
+        [w * 0.3, h * 0.46, 170, 330, 0.9],
+        [w * 0.52, h * 0.52, 150, 300, 0.7],
+        [w * 0.72, h * 0.44, 130, 260, 0.5],
+      ].forEach(([cx, cy, rx, ry, a]) => {
+        almond(g, cx, cy, rx, ry);
+        const fill = g.createLinearGradient(cx - rx, cy - ry, cx + rx, cy + ry);
+        fill.addColorStop(0, `rgba(184, 148, 87, ${0.18 * a})`);
+        fill.addColorStop(1, `rgba(140, 106, 54, ${0.32 * a})`);
+        g.fillStyle = fill;
+        g.fill();
+        g.strokeStyle = `rgba(140, 106, 54, ${0.85 * a})`;
+        g.lineWidth = 2.2;
+        g.stroke();
+      });
+    },
+
+    // An eye with a fine brow arc, on noir with a champagne glow
+    brows(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      g.fillStyle = "#0d0b0a";
+      g.fillRect(0, 0, w, h);
+      const glow = g.createRadialGradient(w / 2, h / 2, 40, w / 2, h / 2, w * 0.45);
+      glow.addColorStop(0, "rgba(184, 148, 87, 0.28)");
+      glow.addColorStop(1, "rgba(13, 11, 10, 0)");
+      g.fillStyle = glow;
+      g.fillRect(0, 0, w, h);
+
+      // Brow: a row of fine strokes following an arc
+      for (let i = 0; i < 120; i++) {
+        const t = i / 119;
+        const x = w * 0.28 + t * w * 0.44;
+        const y = h * 0.36 - Math.sin(t * Math.PI) * h * 0.13 + t * 6;
+        g.beginPath();
+        g.moveTo(x, y);
+        g.lineTo(x + 14, y + 26);
+        g.strokeStyle = `rgba(243, 226, 191, ${0.35 + t * 0.2})`;
+        g.lineWidth = 2.2;
+        g.stroke();
+      }
+
+      // Eye: almond outline with an iris
+      almond(g, w / 2, h * 0.6, 300, 120);
+      g.strokeStyle = "rgba(217, 185, 138, 0.9)";
+      g.lineWidth = 2.5;
+      g.stroke();
+      g.beginPath();
+      g.arc(w / 2, h * 0.6, 58, 0, Math.PI * 2);
+      g.fillStyle = "rgba(184, 148, 87, 0.5)";
+      g.fill();
+      g.beginPath();
+      g.arc(w / 2, h * 0.6, 22, 0, Math.PI * 2);
+      g.fillStyle = "#0d0b0a";
+      g.fill();
+
+      // Lashes along the upper lid
+      for (let i = 0; i < 24; i++) {
+        const t = (i + 1) / 25;
+        const x = w / 2 - 300 + t * 600;
+        const y = h * 0.6 - Math.sin(t * Math.PI) * 120 * 0.9;
+        g.beginPath();
+        g.moveTo(x, y);
+        g.lineTo(x - 6 + t * 12, y - 34);
+        g.strokeStyle = "rgba(217, 185, 138, 0.8)";
+        g.lineWidth = 2;
+        g.stroke();
+      }
+    },
+
+    // The wordmark on a champagne-to-noir gradient
+    brand(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      const bg = g.createLinearGradient(0, 0, w, h);
+      bg.addColorStop(0, "#8c6a36");
+      bg.addColorStop(0.35, "#f3e2bf");
+      bg.addColorStop(0.6, "#b89457");
+      bg.addColorStop(1, "#0d0b0a");
+      g.fillStyle = bg;
+      g.fillRect(0, 0, w, h);
+      g.strokeStyle = "rgba(13, 11, 10, 0.35)";
+      g.lineWidth = 2;
+      g.strokeRect(60, 60, w - 120, h - 120);
+      g.fillStyle = "rgba(13, 11, 10, 0.88)";
+      g.textAlign = "center";
+      g.textBaseline = "middle";
+      g.font = "italic 300 240px Georgia, serif";
+      g.fillText("VELORA", w / 2, h / 2 - 20);
+      g.font = "300 44px Georgia, serif";
+      g.fillText("ولورا", w / 2, h / 2 + 170);
+    },
+  };
+
+  const makeThumb = (source) => {
+    const t = document.createElement("canvas");
+    t.width = 240;
+    t.height = 150;
+    t.getContext("2d").drawImage(source, 0, 0, t.width, t.height);
+    return t.toDataURL("image/jpeg", 0.85);
+  };
+
+  const ARTWORK = [
+    { kind: "hair", title: "مو", sub: "رنگ ریشه، رنگ‌ساژ و کوتاهی", alt: "طرح گرافیکی موهای بلند" },
+    { kind: "nails", title: "ناخن", sub: "کاشت، ترمیم و ژلیش پا", alt: "طرح گرافیکی فرم ناخن بادامی" },
+    { kind: "brows", title: "ابرو و مژه", sub: "فیبروز ابرو، اصلاح و مژه موقت", alt: "طرح گرافیکی چشم و ابرو" },
+    { kind: "brand", title: "ولورا", sub: "تخفیف ویژه به مدت محدود", alt: "نشان ولورا" },
+  ];
+
+  if (galleryRoot && window.MorphGallery) {
+    const items = ARTWORK.map((a) => {
+      const source = artCanvas();
+      drawArt[a.kind](source);
+      return { source, alt: a.alt, title: a.title, sub: a.sub, thumb: makeThumb(source) };
+    });
+
+    const num = $(".morph-num", galleryRoot);
+    const title = $(".morph-title", galleryRoot);
+    const sub = $(".morph-sub", galleryRoot);
+    const thumbList = $(".morph-thumbs", galleryRoot);
+
+    items.forEach((item, i) => {
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", "نمایش " + item.title);
+      const img = document.createElement("img");
+      img.src = item.thumb;
+      img.alt = "";
+      btn.appendChild(img);
+      btn.addEventListener("click", () => gallery.go(i));
+      li.appendChild(btn);
+      thumbList.appendChild(li);
+    });
+
+    const render = (index) => {
+      const item = items[index];
+      num.textContent = `${toFa(index + 1)} / ${toFa(items.length)}`;
+      title.textContent = item.title;
+      sub.textContent = item.sub;
+      $$("button", thumbList).forEach((b, i) => b.setAttribute("aria-current", String(i === index)));
+    };
+
+    const gallery = window.MorphGallery.create(galleryRoot, items, {
+      autoplay: 5000,
+      duration: 1500,
+      onChange: render,
+    });
+    render(gallery.index);
+
+    $(".morph-prev", galleryRoot).addEventListener("click", () => gallery.go(gallery.index - 1));
+    $(".morph-next", galleryRoot).addEventListener("click", () => gallery.go(gallery.index + 1));
+  }
+})();
+
+</script>
+</body>
+</html>
