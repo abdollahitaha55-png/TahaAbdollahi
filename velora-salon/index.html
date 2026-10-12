@@ -202,6 +202,35 @@
       </div>
     </section>
 
+    <!-- ================= MORPH GALLERY ================= -->
+    <section id="gallery" class="gallery section" aria-labelledby="gallery-title">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">گالری</p>
+        <h2 id="gallery-title" class="section-title">نگاهی به <em>ولورا</em></h2>
+        <p>گذار بین هر تصویر با دانه‌های نوری انجام می‌شود. با دکمه‌ها یا کشیدن جابه‌جا شوید.</p>
+      </header>
+
+      <div class="morph" data-morph tabindex="0" role="region" aria-roledescription="اسلایدر" aria-label="گالری ولورا">
+        <canvas aria-hidden="true"></canvas>
+        <div class="morph-fallback" hidden></div>
+
+        <button class="morph-arrow morph-prev" type="button" aria-label="تصویر قبلی">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </button>
+        <button class="morph-arrow morph-next" type="button" aria-label="تصویر بعدی">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+
+        <div class="morph-caption" aria-live="polite">
+          <span class="morph-num latin-num">۰۱ / ۰۴</span>
+          <span class="morph-title">مو</span>
+          <span class="morph-sub">رنگ ریشه، رنگ‌ساژ و کوتاهی</span>
+        </div>
+
+        <ul class="morph-thumbs"></ul>
+      </div>
+    </section>
+
     <!-- ================= PRICE LEDGER ================= -->
     <section id="prices" class="prices section" aria-labelledby="prices-title">
       <header class="section-head" data-reveal>
@@ -491,6 +520,7 @@
     <a href="tel:+989193220038" class="mb-btn">تماس</a>
   </nav>
 
+  <script src="morph-gallery.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

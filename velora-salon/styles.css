@@ -1259,6 +1259,179 @@ main,
   }
 }
 
+/* ---------- Morph gallery ---------- */
+.gallery {
+  background: var(--noir);
+}
+
+.morph {
+  position: relative;
+  height: min(78svh, 720px);
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  border-radius: 4px;
+  background: var(--noir-3);
+  touch-action: pan-y;
+}
+
+.morph:focus-visible {
+  outline: 1px solid var(--champagne);
+  outline-offset: 6px;
+}
+
+.morph canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
+}
+
+.morph canvas.is-ready {
+  opacity: 1;
+}
+
+.morph-fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.morph-fallback-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.9s var(--ease);
+}
+
+.morph::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 45%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(13, 11, 10, 0.85), transparent);
+}
+
+.morph-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 185, 138, 0.4);
+  background: rgba(13, 11, 10, 0.45);
+  color: var(--champagne);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transform: translateY(-50%);
+  transition: background-color 0.4s, border-color 0.4s, transform 0.4s var(--ease);
+}
+
+.morph-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.morph-arrow:hover:not(:disabled) {
+  background: var(--gold-grad);
+  color: var(--noir);
+  border-color: transparent;
+}
+
+.morph-prev {
+  right: 20px;
+}
+
+.morph-next {
+  left: 20px;
+}
+
+.morph-caption {
+  position: absolute;
+  inset-inline: 28px;
+  bottom: 110px;
+  z-index: 3;
+  display: grid;
+  gap: 4px;
+}
+
+.morph-num {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--champagne);
+}
+
+.morph-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.morph-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.morph-thumbs {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 22px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.morph-thumbs button {
+  display: block;
+  width: 76px;
+  height: 48px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  opacity: 0.5;
+  transition: opacity 0.4s, border-color 0.4s;
+}
+
+.morph-thumbs button[aria-current="true"] {
+  opacity: 1;
+  border-color: var(--champagne);
+}
+
+.morph-thumbs img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 560px) {
+  .morph-thumbs {
+    display: none;
+  }
+
+  .morph-caption {
+    bottom: 40px;
+  }
+
+  .morph-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
 /* Declared last so the phone layout overrides the base rules above */
 @media (max-width: 720px) {
   .wa-float {

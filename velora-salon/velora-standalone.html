@@ -1285,6 +1285,179 @@ main,
   }
 }
 
+/* ---------- Morph gallery ---------- */
+.gallery {
+  background: var(--noir);
+}
+
+.morph {
+  position: relative;
+  height: min(78svh, 720px);
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  border-radius: 4px;
+  background: var(--noir-3);
+  touch-action: pan-y;
+}
+
+.morph:focus-visible {
+  outline: 1px solid var(--champagne);
+  outline-offset: 6px;
+}
+
+.morph canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
+}
+
+.morph canvas.is-ready {
+  opacity: 1;
+}
+
+.morph-fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.morph-fallback-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.9s var(--ease);
+}
+
+.morph::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 45%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(13, 11, 10, 0.85), transparent);
+}
+
+.morph-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 185, 138, 0.4);
+  background: rgba(13, 11, 10, 0.45);
+  color: var(--champagne);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transform: translateY(-50%);
+  transition: background-color 0.4s, border-color 0.4s, transform 0.4s var(--ease);
+}
+
+.morph-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.morph-arrow:hover:not(:disabled) {
+  background: var(--gold-grad);
+  color: var(--noir);
+  border-color: transparent;
+}
+
+.morph-prev {
+  right: 20px;
+}
+
+.morph-next {
+  left: 20px;
+}
+
+.morph-caption {
+  position: absolute;
+  inset-inline: 28px;
+  bottom: 110px;
+  z-index: 3;
+  display: grid;
+  gap: 4px;
+}
+
+.morph-num {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--champagne);
+}
+
+.morph-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.morph-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.morph-thumbs {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 22px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.morph-thumbs button {
+  display: block;
+  width: 76px;
+  height: 48px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  opacity: 0.5;
+  transition: opacity 0.4s, border-color 0.4s;
+}
+
+.morph-thumbs button[aria-current="true"] {
+  opacity: 1;
+  border-color: var(--champagne);
+}
+
+.morph-thumbs img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 560px) {
+  .morph-thumbs {
+    display: none;
+  }
+
+  .morph-caption {
+    bottom: 40px;
+  }
+
+  .morph-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
 /* Declared last so the phone layout overrides the base rules above */
 @media (max-width: 720px) {
   .wa-float {
@@ -1498,6 +1671,35 @@ main,
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
           </button>
         </div>
+      </div>
+    </section>
+
+    <!-- ================= MORPH GALLERY ================= -->
+    <section id="gallery" class="gallery section" aria-labelledby="gallery-title">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">گالری</p>
+        <h2 id="gallery-title" class="section-title">نگاهی به <em>ولورا</em></h2>
+        <p>گذار بین هر تصویر با دانه‌های نوری انجام می‌شود. با دکمه‌ها یا کشیدن جابه‌جا شوید.</p>
+      </header>
+
+      <div class="morph" data-morph tabindex="0" role="region" aria-roledescription="اسلایدر" aria-label="گالری ولورا">
+        <canvas aria-hidden="true"></canvas>
+        <div class="morph-fallback" hidden></div>
+
+        <button class="morph-arrow morph-prev" type="button" aria-label="تصویر قبلی">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </button>
+        <button class="morph-arrow morph-next" type="button" aria-label="تصویر بعدی">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+
+        <div class="morph-caption" aria-live="polite">
+          <span class="morph-num latin-num">۰۱ / ۰۴</span>
+          <span class="morph-title">مو</span>
+          <span class="morph-sub">رنگ ریشه، رنگ‌ساژ و کوتاهی</span>
+        </div>
+
+        <ul class="morph-thumbs"></ul>
       </div>
     </section>
 
@@ -1790,7 +1992,388 @@ main,
     <a href="tel:+989193220038" class="mb-btn">تماس</a>
   </nav>
 
-  <script>
+<script>
+/* Morph Gallery — dependency-free port of components/ui/morph-gallery.tsx.
+ * Slides dissolve through fbm noise in a single WebGL pass. Falls back to a
+ * DOM opacity cross-fade when WebGL is unavailable or a texture fails.
+ * Exposes window.MorphGallery.create(root, options). */
+(() => {
+  const VERT = `
+attribute vec2 a_position;
+varying vec2 v_uv;
+void main() {
+  v_uv = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}
+`;
+
+  const FRAG = `
+precision highp float;
+
+uniform sampler2D u_from;
+uniform sampler2D u_to;
+uniform float u_progress;
+uniform vec2 u_resolution;
+uniform float u_fromAspect;
+uniform float u_toAspect;
+uniform float u_scale;
+uniform float u_direction;
+uniform float u_edge;
+uniform float u_drift;
+
+varying vec2 v_uv;
+
+vec3 permute(vec3 x) {
+  return mod(((x * 34.0) + 1.0) * x, 289.0);
+}
+
+float snoise(vec2 v) {
+  const vec4 C = vec4(
+    0.211324865405187,
+    0.366025403784439,
+   -0.577350269189626,
+    0.024390243902439
+  );
+  vec2 i  = floor(v + dot(v, C.yy));
+  vec2 x0 = v - i + dot(i, C.xx);
+  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+  vec4 x12 = x0.xyxy + C.xxzz;
+  x12.xy -= i1;
+  i = mod(i, 289.0);
+  vec3 p = permute(
+    permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0)
+  );
+  vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+  m = m * m;
+  m = m * m;
+  vec3 x  = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h  = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+
+float fbm(vec2 v) {
+  float value = 0.0;
+  float amplitude = 0.5;
+  for (int i = 0; i < 5; i++) {
+    value += amplitude * snoise(v);
+    v *= 2.0;
+    amplitude *= 0.5;
+  }
+  return value;
+}
+
+vec2 mirror(vec2 uv) {
+  return 1.0 - abs(1.0 - mod(uv, 2.0));
+}
+
+vec2 coverUV(vec2 uv, float imgAspect) {
+  float canvasAspect = u_resolution.x / u_resolution.y;
+  vec2 scale = (canvasAspect > imgAspect)
+    ? vec2(1.0, imgAspect / canvasAspect)
+    : vec2(canvasAspect / imgAspect, 1.0);
+  return mirror((uv - 0.5) * scale + 0.5);
+}
+
+void main() {
+  float adjusted = u_progress * (1.0 + 2.0 * u_edge) - u_edge;
+
+  float noise = fbm(v_uv * u_scale + vec2(0.0, u_progress * u_direction)) * 0.5 + 0.5;
+  noise = smoothstep(
+    0.0,
+    2.0,
+    length(texture2D(u_to, coverUV(v_uv, u_toAspect)).rgb) + noise
+  );
+
+  float mixFactor = 1.0 - smoothstep(adjusted - u_edge, adjusted + u_edge, noise);
+
+  vec2 fromUV = coverUV(
+    v_uv + vec2(0.0, noise * u_progress * u_drift * u_direction),
+    u_fromAspect
+  );
+  vec2 toUV = coverUV(
+    v_uv + vec2(0.0, noise * (1.0 - u_progress) * -0.5 * u_drift * u_direction),
+    u_toAspect
+  );
+
+  gl_FragColor = mix(texture2D(u_from, fromUV), texture2D(u_to, toUV), mixFactor);
+}
+`;
+
+  const wrapIndex = (i, n, loop) => {
+    if (n <= 0) return 0;
+    return loop ? ((i % n) + n) % n : Math.min(Math.max(i, 0), n - 1);
+  };
+
+  const easeInOutQuint = (t) => {
+    const x = Math.min(Math.max(t, 0), 1);
+    return x < 0.5 ? 16 * x ** 5 : 1 - (-2 * x + 2) ** 5 / 2;
+  };
+
+  const compile = (gl, type, src) => {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, src);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      const log = gl.getShaderInfoLog(shader);
+      gl.deleteShader(shader);
+      throw new Error("shader compile failed: " + log);
+    }
+    return shader;
+  };
+
+  const link = (gl) => {
+    const vert = compile(gl, gl.VERTEX_SHADER, VERT);
+    const frag = compile(gl, gl.FRAGMENT_SHADER, FRAG);
+    const program = gl.createProgram();
+    gl.attachShader(program, vert);
+    gl.attachShader(program, frag);
+    gl.linkProgram(program);
+    gl.deleteShader(vert);
+    gl.deleteShader(frag);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      const log = gl.getProgramInfoLog(program);
+      gl.deleteProgram(program);
+      throw new Error("program link failed: " + log);
+    }
+    return program;
+  };
+
+  /**
+   * items: [{ source: HTMLImageElement | HTMLCanvasElement, alt, thumb? }]
+   * Images must be same-origin or CORS-enabled to be uploaded to WebGL.
+   */
+  const create = (root, items, opts = {}) => {
+    const cfg = {
+      duration: 1500,
+      noiseScale: 3.5,
+      edge: 0.15,
+      drift: 0.5,
+      loop: true,
+      autoplay: 0,
+      defaultIndex: 0,
+      onChange: null,
+      ...opts,
+    };
+    const n = items.length;
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let active = wrapIndex(cfg.defaultIndex, n, cfg.loop);
+    let paused = false;
+    let timer = 0;
+
+    const canvas = root.querySelector("canvas");
+    const fallback = root.querySelector(".morph-fallback");
+
+    // ---- WebGL ---------------------------------------------------------------
+    let gl = null;
+    let program = null;
+    let buffer = null;
+    const textures = items.map(() => null);
+    const aspects = items.map(() => 1);
+    let uniforms = {};
+    let raf = 0;
+    let from = active;
+    let to = active;
+    let progress = 1;
+    let startedAt = 0;
+    let direction = 1;
+    let request = null;
+    let previous = active;
+
+    const showFallback = () => {
+      if (canvas) canvas.hidden = true;
+      if (!fallback) return;
+      fallback.hidden = false;
+      fallback.innerHTML = "";
+      items.forEach((item, i) => {
+        const img = document.createElement("img");
+        img.src = item.src || item.source.toDataURL();
+        img.alt = item.alt || "";
+        img.className = "morph-fallback-img";
+        img.style.opacity = i === active ? "1" : "0";
+        fallback.appendChild(img);
+      });
+      root.classList.add("is-fallback");
+    };
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.round(canvas.clientWidth * dpr);
+      const h = Math.round(canvas.clientHeight * dpr);
+      if (!w || !h || (canvas.width === w && canvas.height === h)) return;
+      canvas.width = w;
+      canvas.height = h;
+      gl.viewport(0, 0, w, h);
+    };
+
+    const pick = (i) => textures[i] || textures.find(Boolean) || null;
+
+    const draw = () => {
+      const pending = request;
+      if (pending) {
+        request = null;
+        from = pending.from;
+        to = pending.to;
+        progress = 0;
+        startedAt = performance.now();
+        // The shortest way round, so a wrap drifts forward like any other step.
+        const forward = cfg.loop
+          ? ((pending.to - pending.from + n) % n) * 2 <= n
+          : pending.to > pending.from;
+        direction = forward ? 1 : -1;
+      }
+
+      if (progress < 1) {
+        const span = reduced ? 0 : Math.max(cfg.duration, 1);
+        const elapsed = performance.now() - startedAt;
+        progress = span === 0 ? 1 : easeInOutQuint(Math.min(elapsed / span, 1));
+      }
+
+      const fromTex = pick(from);
+      const toTex = pick(to);
+      if (!fromTex || !toTex) return;
+
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, fromTex);
+      gl.uniform1i(uniforms.from, 0);
+      gl.activeTexture(gl.TEXTURE1);
+      gl.bindTexture(gl.TEXTURE_2D, toTex);
+      gl.uniform1i(uniforms.to, 1);
+
+      gl.uniform1f(uniforms.progress, progress);
+      gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
+      gl.uniform1f(uniforms.fromAspect, aspects[from] || 1);
+      gl.uniform1f(uniforms.toAspect, aspects[to] || 1);
+      gl.uniform1f(uniforms.scale, cfg.noiseScale);
+      gl.uniform1f(uniforms.direction, direction);
+      gl.uniform1f(uniforms.edge, Math.max(cfg.edge, 0.001));
+      gl.uniform1f(uniforms.drift, cfg.drift);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    };
+
+    const frame = () => {
+      if (!document.hidden) draw();
+      raf = requestAnimationFrame(frame);
+    };
+
+    const initWebGL = () => {
+      gl = canvas.getContext("webgl", { alpha: false, antialias: false });
+      if (!gl) return false;
+
+      program = link(gl);
+      gl.useProgram(program);
+
+      buffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+      const loc = gl.getAttribLocation(program, "a_position");
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+      ["from", "to", "progress", "resolution", "fromAspect", "toAspect", "scale", "direction", "edge", "drift"]
+        .forEach((name) => { uniforms[name] = gl.getUniformLocation(program, "u_" + name); });
+
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+
+      // Upload each texture as it becomes available; the loop starts on the first one.
+      let running = false;
+      items.forEach((item, i) => {
+        try {
+          const tex = gl.createTexture();
+          gl.bindTexture(gl.TEXTURE_2D, tex);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, item.source);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          textures[i] = tex;
+          aspects[i] = item.source.width / Math.max(item.source.height, 1);
+          if (!running) {
+            running = true;
+            resize();
+            canvas.classList.add("is-ready");
+            raf = requestAnimationFrame(frame);
+          }
+        } catch (err) {
+          // A tainted or undecodable source costs one slide, not the gallery.
+          console.warn("morph: texture " + i + " skipped", err);
+        }
+      });
+      return running;
+    };
+
+    const go = (next) => {
+      const wrapped = wrapIndex(next, n, cfg.loop);
+      if (wrapped === active) return;
+      previous = active;
+      active = wrapped;
+      if (gl && textures.some(Boolean)) request = { from: previous, to: active };
+      update();
+      if (cfg.onChange) cfg.onChange(active);
+      if (fallback && root.classList.contains("is-fallback")) {
+        [...fallback.children].forEach((img, i) => { img.style.opacity = i === active ? "1" : "0"; });
+      }
+    };
+
+    // Autoplay: pauses while hovered, focused, or when the tab is hidden.
+    const restartTimer = () => {
+      clearInterval(timer);
+      if (!cfg.autoplay || reduced || paused || n < 2) return;
+      timer = setInterval(() => go(active + 1), Math.max(cfg.autoplay, 600));
+    };
+
+    const update = () => {
+      root.dispatchEvent(new CustomEvent("morphchange", { detail: { index: active } }));
+      restartTimer();
+    };
+
+    // ---- start ------------------------------------------------------------------
+    try {
+      if (!initWebGL()) throw new Error("no webgl");
+      const onLost = (e) => { e.preventDefault(); cancelAnimationFrame(raf); };
+      canvas.addEventListener("webglcontextlost", onLost);
+      new ResizeObserver(() => { if (gl) resize(); }).observe(canvas);
+    } catch (err) {
+      console.warn("morph: falling back to cross-fade", err);
+      showFallback();
+    }
+
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(active + 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(active - 1); }
+    });
+    root.addEventListener("mouseenter", () => { paused = true; restartTimer(); });
+    root.addEventListener("mouseleave", () => { paused = false; restartTimer(); });
+    root.addEventListener("focusin", () => { paused = true; restartTimer(); });
+    root.addEventListener("focusout", () => { paused = false; restartTimer(); });
+    document.addEventListener("visibilitychange", () => {
+      paused = document.hidden;
+      restartTimer();
+    });
+
+    let swipeX = null;
+    root.addEventListener("pointerdown", (e) => { swipeX = e.clientX; });
+    root.addEventListener("pointerup", (e) => {
+      if (swipeX === null) return;
+      const dx = e.clientX - swipeX;
+      swipeX = null;
+      if (Math.abs(dx) > 48) go(active + (dx < 0 ? 1 : -1));
+    });
+
+    update();
+    return { go, get index() { return active; } };
+  };
+
+  window.MorphGallery = { create, wrapIndex, easeInOutQuint };
+})();
+
+</script>
+<script>
 /* Velora — interactions */
 (() => {
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -1997,6 +2580,213 @@ main,
         status.classList.add("is-error");
       });
   });
+  /* ---------- Morph gallery: original artwork in the Velora palette ---------- */
+  const galleryRoot = $("[data-morph]");
+
+  const artCanvas = (w = 1600, h = 1000) => {
+    const c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    return c;
+  };
+
+  const almond = (g, cx, cy, rx, ry) => {
+    g.beginPath();
+    g.moveTo(cx, cy - ry);
+    g.bezierCurveTo(cx + rx * 1.25, cy - ry * 0.35, cx + rx, cy + ry * 0.85, cx, cy + ry);
+    g.bezierCurveTo(cx - rx, cy + ry * 0.85, cx - rx * 1.25, cy - ry * 0.35, cx, cy - ry);
+    g.closePath();
+  };
+
+  const drawArt = {
+    // Strands of hair in soft oxblood and champagne
+    hair(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      const bg = g.createLinearGradient(0, 0, w, h);
+      bg.addColorStop(0, "#2a1219");
+      bg.addColorStop(1, "#0d0b0a");
+      g.fillStyle = bg;
+      g.fillRect(0, 0, w, h);
+      for (let k = 0; k < 46; k++) {
+        const y0 = -60 + (k * (h + 120)) / 46;
+        g.beginPath();
+        g.moveTo(-20, y0);
+        for (let x = 0; x <= w + 40; x += 40) {
+          g.lineTo(x, y0 + Math.sin(x / 260 + k * 0.35) * 110 + Math.sin(x / 90 + k) * 18);
+        }
+        g.strokeStyle = `rgba(217, 185, 138, ${0.12 + (k % 7) / 30})`;
+        g.lineWidth = 1 + (k % 3) * 0.6;
+        g.stroke();
+      }
+    },
+
+    // Almond forms in pale ivory and gold
+    nails(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      const bg = g.createLinearGradient(0, 0, 0, h);
+      bg.addColorStop(0, "#f3e8d6");
+      bg.addColorStop(1, "#d9c3a2");
+      g.fillStyle = bg;
+      g.fillRect(0, 0, w, h);
+      [
+        [w * 0.3, h * 0.46, 170, 330, 0.9],
+        [w * 0.52, h * 0.52, 150, 300, 0.7],
+        [w * 0.72, h * 0.44, 130, 260, 0.5],
+      ].forEach(([cx, cy, rx, ry, a]) => {
+        almond(g, cx, cy, rx, ry);
+        const fill = g.createLinearGradient(cx - rx, cy - ry, cx + rx, cy + ry);
+        fill.addColorStop(0, `rgba(184, 148, 87, ${0.18 * a})`);
+        fill.addColorStop(1, `rgba(140, 106, 54, ${0.32 * a})`);
+        g.fillStyle = fill;
+        g.fill();
+        g.strokeStyle = `rgba(140, 106, 54, ${0.85 * a})`;
+        g.lineWidth = 2.2;
+        g.stroke();
+      });
+    },
+
+    // An eye with a fine brow arc, on noir with a champagne glow
+    brows(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      g.fillStyle = "#0d0b0a";
+      g.fillRect(0, 0, w, h);
+      const glow = g.createRadialGradient(w / 2, h / 2, 40, w / 2, h / 2, w * 0.45);
+      glow.addColorStop(0, "rgba(184, 148, 87, 0.28)");
+      glow.addColorStop(1, "rgba(13, 11, 10, 0)");
+      g.fillStyle = glow;
+      g.fillRect(0, 0, w, h);
+
+      // Brow: a row of fine strokes following an arc
+      for (let i = 0; i < 120; i++) {
+        const t = i / 119;
+        const x = w * 0.28 + t * w * 0.44;
+        const y = h * 0.36 - Math.sin(t * Math.PI) * h * 0.13 + t * 6;
+        g.beginPath();
+        g.moveTo(x, y);
+        g.lineTo(x + 14, y + 26);
+        g.strokeStyle = `rgba(243, 226, 191, ${0.35 + t * 0.2})`;
+        g.lineWidth = 2.2;
+        g.stroke();
+      }
+
+      // Eye: almond outline with an iris
+      almond(g, w / 2, h * 0.6, 300, 120);
+      g.strokeStyle = "rgba(217, 185, 138, 0.9)";
+      g.lineWidth = 2.5;
+      g.stroke();
+      g.beginPath();
+      g.arc(w / 2, h * 0.6, 58, 0, Math.PI * 2);
+      g.fillStyle = "rgba(184, 148, 87, 0.5)";
+      g.fill();
+      g.beginPath();
+      g.arc(w / 2, h * 0.6, 22, 0, Math.PI * 2);
+      g.fillStyle = "#0d0b0a";
+      g.fill();
+
+      // Lashes along the upper lid
+      for (let i = 0; i < 24; i++) {
+        const t = (i + 1) / 25;
+        const x = w / 2 - 300 + t * 600;
+        const y = h * 0.6 - Math.sin(t * Math.PI) * 120 * 0.9;
+        g.beginPath();
+        g.moveTo(x, y);
+        g.lineTo(x - 6 + t * 12, y - 34);
+        g.strokeStyle = "rgba(217, 185, 138, 0.8)";
+        g.lineWidth = 2;
+        g.stroke();
+      }
+    },
+
+    // The wordmark on a champagne-to-noir gradient
+    brand(c) {
+      const g = c.getContext("2d");
+      const w = c.width;
+      const h = c.height;
+      const bg = g.createLinearGradient(0, 0, w, h);
+      bg.addColorStop(0, "#8c6a36");
+      bg.addColorStop(0.35, "#f3e2bf");
+      bg.addColorStop(0.6, "#b89457");
+      bg.addColorStop(1, "#0d0b0a");
+      g.fillStyle = bg;
+      g.fillRect(0, 0, w, h);
+      g.strokeStyle = "rgba(13, 11, 10, 0.35)";
+      g.lineWidth = 2;
+      g.strokeRect(60, 60, w - 120, h - 120);
+      g.fillStyle = "rgba(13, 11, 10, 0.88)";
+      g.textAlign = "center";
+      g.textBaseline = "middle";
+      g.font = "italic 300 240px Georgia, serif";
+      g.fillText("VELORA", w / 2, h / 2 - 20);
+      g.font = "300 44px Georgia, serif";
+      g.fillText("ولورا", w / 2, h / 2 + 170);
+    },
+  };
+
+  const makeThumb = (source) => {
+    const t = document.createElement("canvas");
+    t.width = 240;
+    t.height = 150;
+    t.getContext("2d").drawImage(source, 0, 0, t.width, t.height);
+    return t.toDataURL("image/jpeg", 0.85);
+  };
+
+  const ARTWORK = [
+    { kind: "hair", title: "مو", sub: "رنگ ریشه، رنگ‌ساژ و کوتاهی", alt: "طرح گرافیکی موهای بلند" },
+    { kind: "nails", title: "ناخن", sub: "کاشت، ترمیم و ژلیش پا", alt: "طرح گرافیکی فرم ناخن بادامی" },
+    { kind: "brows", title: "ابرو و مژه", sub: "فیبروز ابرو، اصلاح و مژه موقت", alt: "طرح گرافیکی چشم و ابرو" },
+    { kind: "brand", title: "ولورا", sub: "تخفیف ویژه به مدت محدود", alt: "نشان ولورا" },
+  ];
+
+  if (galleryRoot && window.MorphGallery) {
+    const items = ARTWORK.map((a) => {
+      const source = artCanvas();
+      drawArt[a.kind](source);
+      return { source, alt: a.alt, title: a.title, sub: a.sub, thumb: makeThumb(source) };
+    });
+
+    const num = $(".morph-num", galleryRoot);
+    const title = $(".morph-title", galleryRoot);
+    const sub = $(".morph-sub", galleryRoot);
+    const thumbList = $(".morph-thumbs", galleryRoot);
+
+    items.forEach((item, i) => {
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", "نمایش " + item.title);
+      const img = document.createElement("img");
+      img.src = item.thumb;
+      img.alt = "";
+      btn.appendChild(img);
+      btn.addEventListener("click", () => gallery.go(i));
+      li.appendChild(btn);
+      thumbList.appendChild(li);
+    });
+
+    const render = (index) => {
+      const item = items[index];
+      num.textContent = `${toFa(index + 1)} / ${toFa(items.length)}`;
+      title.textContent = item.title;
+      sub.textContent = item.sub;
+      $$("button", thumbList).forEach((b, i) => b.setAttribute("aria-current", String(i === index)));
+    };
+
+    const gallery = window.MorphGallery.create(galleryRoot, items, {
+      autoplay: 5000,
+      duration: 1500,
+      onChange: render,
+    });
+    render(gallery.index);
+
+    $(".morph-prev", galleryRoot).addEventListener("click", () => gallery.go(gallery.index - 1));
+    $(".morph-next", galleryRoot).addEventListener("click", () => gallery.go(gallery.index + 1));
+  }
 })();
 
 </script>
