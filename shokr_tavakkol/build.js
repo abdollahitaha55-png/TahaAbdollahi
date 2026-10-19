@@ -123,7 +123,7 @@ async function slot(s, key, x, y, w, h, o = {}) {
   const file = findImage(key);
   if (file) {
     const px = 150;
-    const buf = await sharp(file).rotate().resize(Math.round(w * px), Math.round(h * px), { fit: "cover", position: "attention" }).jpeg({ quality: 88 }).toBuffer();
+    const buf = await sharp(file).rotate().resize(Math.round(w * px), Math.round(h * px), { fit: "cover", position: "attention" }).sharpen({ sigma: 0.7 }).jpeg({ quality: 90 }).toBuffer();
     s.addImage({ data: "image/jpeg;base64," + buf.toString("base64"), x, y, w, h, rounding: circle, altText: key });
     return;
   }
@@ -151,7 +151,7 @@ async function build() {
   // 1 — Title
   pres.addSection({ title: "مقدمه" });
   s = pres.addSlide({ masterName: "DARK_BLANK", sectionTitle: "مقدمه" });
-  await slot(s, "title", 0, 0, 5.6, H, { ico: "FaMosque", tone: "dark" });
+  await slot(s, "title", M, 0.9, 4.9, 5.7, { ico: "FaMosque", tone: "dark", frame: true });
   T(s, "درس اخلاق اسلامی", 6.3, 1.2, 6.43, 0.5, { fontSize: 22, color: C.accent1, bold: true });
   T(s, "شکر و توکل", 6.3, 1.9, 6.43, 1.6, { fontSize: 72, bold: true, color: C.background1, valign: "middle" });
   T(s, "سپاسِ نعمت‌های خدا و اعتماد به تدبیر او", 6.3, 3.7, 6.43, 0.9, { fontSize: 26, color: C.accent3 });
@@ -198,7 +198,7 @@ async function build() {
   // 4 — Divider: Shokr
   pres.addSection({ title: "شکر" });
   s = pres.addSlide({ masterName: "DARK_BLANK", sectionTitle: "شکر" });
-  await slot(s, "shokr_div", 0, 0, 5.4, H, { ico: "FaHandsHelping", tone: "dark" });
+  await slot(s, "shokr_div", M, 1.5, 4.8, 5.0, { ico: "FaHandsHelping", tone: "dark", frame: true });
   T(s, "بخش اول", 6.1, 1.9, 6.63, 0.5, { fontSize: 22, color: C.accent1, bold: true });
   T(s, "شکر", 6.1, 2.4, 6.63, 1.9, { fontSize: 96, bold: true, color: C.background1, valign: "middle" });
   T(s, "سپاسِ نعمت‌های بی‌شمار خداوند", 6.1, 4.4, 6.63, 0.7, { fontSize: 26, color: C.accent3 });
@@ -223,7 +223,7 @@ async function build() {
 
   // 6 — Verse: Ibrahim 7
   s = pres.addSlide({ masterName: "DARK_BLANK", sectionTitle: "شکر" });
-  await slot(s, "shokr_verse", 0, 0, 4.2, H, { ico: "FaQuran", tone: "dark" });
+  await slot(s, "shokr_verse", M, 1.5, 4.0, 5.0, { ico: "FaQuran", tone: "dark", frame: true });
   T(s, "وعدهٔ الهی دربارهٔ شکر", 4.9, 0.8, 7.83, 0.6, { fontSize: 22, bold: true, color: C.accent3 });
   Ar(s, "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ وَلَئِن كَفَرْتُمْ إِنَّ عَذَابِي لَشَدِيدٌ", 4.9, 1.7, 7.83, 2.3, { fontSize: 38, valign: "middle", lineSpacingMultiple: 1.2 });
   T(s, "«اگر شکرگزاری کنید، [نعمت] شما را افزون می‌کنم و اگر ناسپاسی کنید، عذاب من سخت است.»", 4.9, 4.2, 7.83, 1.2, { fontSize: 22, color: C.background1 });
@@ -386,7 +386,7 @@ async function build() {
   // 14 — Divider: Tavakkol
   pres.addSection({ title: "توکل" });
   s = pres.addSlide({ masterName: "DARK_BLANK", sectionTitle: "توکل" });
-  await slot(s, "tav_div", 0, 0, 5.4, H, { ico: "FaMountain", tone: "dark" });
+  await slot(s, "tav_div", M, 1.5, 4.8, 5.0, { ico: "FaMountain", tone: "dark", frame: true });
   T(s, "بخش دوم", 6.1, 1.9, 6.63, 0.5, { fontSize: 22, color: C.accent1, bold: true });
   T(s, "توکل", 6.1, 2.4, 6.63, 1.9, { fontSize: 96, bold: true, color: C.background1, valign: "middle" });
   T(s, "اعتماد به خدا و سپردن کارها به او", 6.1, 4.4, 6.63, 0.7, { fontSize: 26, color: C.accent3 });
@@ -397,7 +397,9 @@ async function build() {
   // 15 — Meaning of tawakkul
   s = pres.addSlide({ masterName: "LIGHT", sectionTitle: "توکل" });
   title(s, "معنای توکل");
-  await slot(s, "tav_def", W - M - 4.4, 1.6, 4.4, 5.0, { ico: "FaRoute", tone: "dark", frame: false });
+  await slot(s, "tav_def", W - M - 4.4, 1.6, 4.4, 3.2, { ico: "FaRoute", tone: "dark", frame: false });
+  card(s, W - M - 4.4, 5.0, 4.4, 1.6, HEX.dk2);
+  T(s, "انسان با تمام قدرت تلاش می‌کند، اما نتیجه را به خدا می‌سپارد.", W - M - 4.4 + 0.3, 5.0, 3.8, 1.6, { fontSize: 18, bold: true, color: C.background1, valign: "middle" });
   const tdefs = [
     ["در لغت", "توکل از ریشهٔ «وَکَلَ» است؛ یعنی کار را به دیگری سپردن و او را وکیل گرفتن.", 1.6, 2.2, HEX.lt2, HEX.dk1],
     ["در اصطلاح", "اعتماد و اطمینان به خدا و سپردن کارها به او، پس از به‌کار گرفتن اسباب؛ با باور به اینکه سرچشمهٔ همهٔ تأثیرها اوست.", 4.0, 2.6, HEX.dk2, "FFFFFF"],

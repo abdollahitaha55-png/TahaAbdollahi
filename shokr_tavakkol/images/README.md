@@ -27,3 +27,8 @@ Slots without a file show a designed icon panel.
 | closing | 25 | mosque at dusk (a dark scrim is added automatically) |
 
 Run with: `NODE_PATH=<dir with pptxgenjs react react-dom react-icons sharp> APPLY_THEME=<path to apply_theme.js> node build.js`
+
+## Provided photos (from the supplied 8-card collage)
+`images/tiles/` holds the 8 separated cards (with their original text). The text-free photo regions
+were cropped into: title, intro, shokr_def, shokr_verse, tav_div, tav_def, day_night, day_morning.
+Still icon placeholders: shokr_div, shokr_ways, noah, solomon, prophet, musa, cave, mominin, day_work, summary, closing.
