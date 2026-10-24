@@ -62,7 +62,7 @@ salons do that she refuses to? What does she tell every new client?
 Real numbers, outcomes and stories I am happy to put my name on. None are known
 yet, so drafts will carry `{{...}}` where a number is needed.
 
-- {{years of experience}}
+- 5 years of experience (stated by the owner, 2026-10-24)
 - {{number of clients, or number of perms / keratin treatments done}}
 - {{how long a result lasts, with the product she uses}}
 
