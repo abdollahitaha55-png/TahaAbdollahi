@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; background: #ffffff; }
+  #fig { position: relative; width: 1000px; height: 640px;
+          font-family: "DejaVu Sans", Tahoma, sans-serif; color: #111827; }
+  svg { position: absolute; left: 0; top: 0; }
+  .arrow { fill: none; stroke: #374151; stroke-width: 2.4; }
+  .tag { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+  .tagtext { font-size: 19px; text-anchor: middle; fill: #111827; font-family: "DejaVu Sans", Tahoma, sans-serif; }
+  .node { position: absolute; width: 210px; height: 210px; box-sizing: border-box;
+           border: 2.5px solid; border-radius: 50%; display: flex; flex-direction: column;
+           align-items: center; justify-content: center; text-align: center;
+           padding: 0 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+  .role { font-size: 16px; margin-bottom: 4px; }
+  .name { font-size: 24px; font-weight: bold; line-height: 1.3; }
+  .desc { font-size: 18px; line-height: 1.5; margin-top: 4px; color: #374151; }
+</style>
+</head>
+<body>
+<div id="fig">
+<svg width="1000" height="640" viewBox="0 0 1000 640">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8"
+            orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <path d="M820,235 Q500,-75 180,235" class="arrow" marker-end="url(#ah)"/>
+<path d="M719.4,300.7 L604.3,255.8" class="arrow" marker-end="url(#ah)"/>
+<path d="M725.2,391.8 L598.3,461.3" class="arrow" marker-end="url(#ah)"/>
+<path d="M399.4,254.3 L284.3,299.2" class="arrow" marker-end="url(#ah)"/>
+<path d="M405.2,463.2 L278.3,393.7" class="arrow" marker-end="url(#ah)"/>
+<path d="M500.0,323.0 L500.0,403.0" class="arrow" marker-end="url(#ah)"/>
+  <rect x="462" y="66" width="76" height="28" rx="14" class="tag"/><text x="500" y="86" class="tagtext">فرضیه ۱</text>
+<rect x="623.8629146989592" y="264.22770105428094" width="76" height="28" rx="14" class="tag"/><text x="661.8629146989592" y="284.22770105428094" class="tagtext">فرضیه ۲</text>
+<rect x="623.7547422791048" y="412.5403753161146" width="76" height="28" rx="14" class="tag"/><text x="661.7547422791048" y="432.5403753161146" class="tagtext">فرضیه ۳</text>
+<rect x="303.86291469895923" y="262.77229894571906" width="76" height="28" rx="14" class="tag"/><text x="341.86291469895923" y="282.77229894571906" class="tagtext">فرضیه ۴</text>
+<rect x="303.7547422791048" y="414.4596246838854" width="76" height="28" rx="14" class="tag"/><text x="341.7547422791048" y="434.4596246838854" class="tagtext">فرضیه ۵</text>
+<rect x="462.0" y="349.0" width="76" height="28" rx="14" class="tag"/><text x="500.0" y="369.0" class="tagtext">فرضیه ۶</text>
+</svg>
+<div class="node" style="left:715px;top:235px;background:#dbeafe;border-color:#1d4ed8"><div class="role" style="color:#1d4ed8">متغیر مستقل</div><div class="name">ارتقای شغلی</div><div class="desc">سرعت و فرصت ادراک‌شده ارتقا</div></div><div class="node" style="left:75px;top:235px;background:#dcfce7;border-color:#15803d"><div class="role" style="color:#15803d">متغیر وابسته</div><div class="name">عملکرد کارکنان</div></div><div class="node" style="left:395px;top:110px;background:#fef3c7;border-color:#b45309"><div class="role" style="color:#b45309">متغیر میانجی</div><div class="name">توسعه شغلی</div><div class="desc">پیشرفت در اهداف شغلی، رشد توانایی حرفه‌ای</div></div><div class="node" style="left:395px;top:410px;background:#fef3c7;border-color:#b45309"><div class="role" style="color:#b45309">متغیر میانجی</div><div class="name">انگیزه شغلی</div><div class="desc">انگیزش درونی و بیرونی تلاش در کار</div></div>
+</div>
+</body>
+</html>
