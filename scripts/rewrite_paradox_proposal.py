@@ -2,15 +2,17 @@
 paradoxical-leadership proposal (Astan Quds Razavi), starting from the
 original upload.
 
-* 4-3 problem statement: APA in-text citations. Foreign sources get a numbered
-  note placed inside the same box, left-to-right, containing only the English
-  surname(s) and year. Persian sources have no note.
+* 4-3 problem statement: APA in-text citations. Foreign sources get a real
+  Word footnote at their first mention, containing only the English surname(s)
+  and year, left-aligned and left-to-right. Persian sources have no footnote.
 * 4-4 objectives and 4-5 questions: the three items given by the user.
 * 4-7 literature review: every entry in the order who / title / population /
   purpose / method / results. Foreign titles are translated into Persian.
-  Notes are numbered again within this box.
+  Footnotes continue the numbering of 4-3.
 * 4-10 reference list (APA): Persian entries, then English entries.
   Only sources whose bibliographic details were verified are listed.
+* Page layout: the bottom margin is raised so footnotes sit inside the page
+  border instead of on it; the empty "duration" field of 4-2 is filled.
 
 Usage: python3 scripts/rewrite_paradox_proposal.py <in.docx> <out.docx>
 """
@@ -125,6 +127,17 @@ def split_italics(s):
     return segs
 
 
+FOOTNOTES = []  # English text of each footnote, in document order
+
+
+def fnref_run(fid):
+    r = etree.Element(W + "r")
+    rpr = etree.SubElement(r, W + "rPr")
+    etree.SubElement(rpr, W + "rStyle").set(W + "val", "FootnoteReference")
+    etree.SubElement(r, W + "footnoteReference").set(W + "id", str(fid))
+    return r
+
+
 def build_cell(ppr, sz, paragraphs):
     """paragraphs: list of segment lists.
     Segments: ("t", text) plain, ("b", text) bold, ("note", english) numbered note.
@@ -142,37 +155,12 @@ def build_cell(ppr, sz, paragraphs):
                 p.append(make_run(val, sz, bold=True))
             elif kind == "note":
                 notes.append(val)
-                p.append(make_run(str(len(notes)), sz, sup=True))
+                FOOTNOTES.append(val)
+                p.append(fnref_run(len(FOOTNOTES)))
             else:
                 raise ValueError(kind)
         out.append(p)
     return out, notes
-
-
-def notes_block(notes):
-    """Numbered notes inside the box: left-to-right, English text."""
-    if not notes:
-        return []
-    sep = etree.Element(W + "p")
-    ppr = etree.SubElement(sep, W + "pPr")
-    bdr = etree.SubElement(ppr, W + "pBdr")
-    top = etree.SubElement(bdr, W + "top")
-    top.set(W + "val", "single")
-    top.set(W + "sz", "4")
-    top.set(W + "space", "1")
-    top.set(W + "color", "auto")
-    sp = etree.SubElement(ppr, W + "spacing")
-    sp.set(W + "before", "120")
-    sp.set(W + "after", "40")
-    etree.SubElement(ppr, W + "jc").set(W + "val", "left")
-    out = [sep]
-    for n, text in enumerate(notes, start=1):
-        p = etree.Element(W + "p")
-        p.append(english_ppr(justify="left", hanging=False))
-        p.append(make_run(str(n), 20, sup=True, eng=True))
-        p.append(make_run(" " + text, 20, eng=True))
-        out.append(p)
-    return out
 
 
 def replace_children(cell, paras):
@@ -211,7 +199,7 @@ P43 = [
     ],
 ]
 paras43, notes43 = build_cell(ppr43, sz43, P43)
-replace_children(c43, paras43 + notes_block(notes43))
+replace_children(c43, paras43)
 assert len(notes43) == 5, notes43
 
 # ------------------------------------------------------------ 4-4 objectives
@@ -280,7 +268,7 @@ HEAD_INT = "ب) پیشینه‌های پژوهشی داخلی (ایران) - ا�
 lit_segments = [[("b", HEAD_EXT)]] + EXT + [[("b", HEAD_INT)]] + INT
 lit_paras, notes47 = build_cell(ppr47, sz47, lit_segments)
 assert len(notes47) == 4, notes47
-replace_children(c47, lit_paras + [keep_head, keep_text] + notes_block(notes47))
+replace_children(c47, lit_paras + [keep_head, keep_text])
 
 # ------------------------------------------------------------ 4-10 reference list (APA)
 tref = table_by_heading("منابع : (براساس")
@@ -319,13 +307,75 @@ for ref in EN_REFS:
     ref_paras.append(p)
 replace_children(cr, ref_paras)
 
-# ------------------------------------------------------------ footnote part: no Word footnotes remain
+# ------------------------------------------------------------ footnotes: left-aligned, left-to-right
+# Footnote text starts at the left border of the section tables.
+FN_LEFT, FN_RIGHT = "700", "380"
+
+
+def footnote_ppr():
+    ppr = etree.Element(W + "pPr")
+    etree.SubElement(ppr, W + "pStyle").set(W + "val", "FootnoteText")
+    etree.SubElement(ppr, W + "bidi").set(W + "val", "0")
+    sp = etree.SubElement(ppr, W + "spacing")
+    sp.set(W + "before", "0")
+    sp.set(W + "after", "0")
+    sp.set(W + "line", "240")
+    sp.set(W + "lineRule", "auto")
+    ind = etree.SubElement(ppr, W + "ind")
+    ind.set(W + "left", FN_LEFT)
+    ind.set(W + "right", FN_RIGHT)
+    etree.SubElement(ppr, W + "jc").set(W + "val", "left")
+    return ppr
+
+
+def tnr_rpr(style=None):
+    rpr = etree.Element(W + "rPr")
+    if style:
+        etree.SubElement(rpr, W + "rStyle").set(W + "val", style)
+    fonts = etree.SubElement(rpr, W + "rFonts")
+    for k in ("ascii", "hAnsi", "cs"):
+        fonts.set(W + k, "Times New Roman")
+    etree.SubElement(rpr, W + "sz").set(W + "val", "18")
+    etree.SubElement(rpr, W + "szCs").set(W + "val", "18")
+    return rpr
+
+
 for f in list(fnroot.findall(W + "footnote")):
     if f.get(W + "type") is None:
         fnroot.remove(f)
+    else:  # separator lines start at the same left edge as the footnote text
+        p = f.find(W + "p")
+        old = p.find(W + "pPr")
+        if old is not None:
+            p.remove(old)
+        p.insert(0, footnote_ppr())
+for fid, text in enumerate(FOOTNOTES, start=1):
+    fn = etree.SubElement(fnroot, W + "footnote")
+    fn.set(W + "id", str(fid))
+    p = etree.SubElement(fn, W + "p")
+    p.append(footnote_ppr())
+    r = etree.SubElement(p, W + "r")
+    r.append(tnr_rpr("FootnoteReference"))
+    etree.SubElement(r, W + "footnoteRef")
+    r = etree.SubElement(p, W + "r")
+    r.append(tnr_rpr())
+    t_el = etree.SubElement(r, W + "t")
+    t_el.set(XML_SPACE, "preserve")
+    t_el.text = " " + text
+
+# ------------------------------------------------------------ page layout and the empty duration field
+for mar in doc.iter(W + "pgMar"):
+    if int(mar.get(W + "bottom", "0")) < 1000:
+        mar.set(W + "bottom", "1000")  # page border is 480 twips from the edge
+filled = 0
+for t_el in doc.iter(W + "t"):
+    if t_el.text and "........ ماه" in t_el.text:
+        t_el.text = t_el.text.replace("........", "۶")
+        filled += 1
+assert filled == 1, filled
 
 # ------------------------------------------------------------ write package
-assert not list(doc.iter(W + "footnoteReference"))
+assert len(list(doc.iter(W + "footnoteReference"))) == len(FOOTNOTES) == 9
 new_doc = etree.tostring(doc, xml_declaration=True, encoding="UTF-8", standalone=True)
 new_fn = etree.tostring(fnroot, xml_declaration=True, encoding="UTF-8", standalone=True)
 with zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFLATED) as zout:
